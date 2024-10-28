@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import me from "../my.jpg";
-import Link from "next/link";
 
 const About = () => {
   return (
