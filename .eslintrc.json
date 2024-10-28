@@ -1,7 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
-}
-
-rules: {
-  "@typescript-eslint/no-explicit-any": "warn",
+  "extends": ["next/core-web-vitals", "next/typescript"], // Add a comma here
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "warn" // Change from "error" to "warn" or "off"
+  }
 }
