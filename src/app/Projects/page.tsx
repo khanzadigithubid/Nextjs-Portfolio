@@ -14,6 +14,14 @@ import project9 from "../../../project9.jpg";
 import project10 from "../../../project10.jpg";
 import project11 from "../../../project11.jpg";
 import project12 from "../../../project12.jpg";
+import project13 from "../../../project13.jpg";
+import project14 from "../../../project14.jpg";
+import project15 from "../../../project15.jpg";
+import project16 from "../../../project16.jpg";
+import project17 from "../../../project17.jpg";
+import project18 from "../../../project18.jpg";
+import project19 from "../../../project19.jpg";
+import project20 from "../../../project20.jpg";
 import Link from "next/link";
 
 const projects = [
@@ -70,36 +78,91 @@ const projects = [
     src: project8,
     alt: "Weather App",
     title: "API Weather App",
-    description: "The Weather API provides real-time weather data for locations around the globe! 🌍 With this API, you can add forecasts and weather alerts to your applications. 🌦️📲🌈.",
+    description: "🌍 Weather API: Access real-time weather data, forecasts, and alerts for any location worldwide. 🌦️📲 Enhance your applications with reliable, up-to-date weather insights! 🌈✨",
     link: "https://github.com/khanzadigithubid/API-Weather-Project"
   },
   {
     src: project9,
     alt: "Car Showroom",
     title: "Car Showroom Website",
-    description: "🚗✨ Discover the ultimate car buying experience with our Next.js-powered Car Showroom! Fast, responsive, and user-friendly, our site lets you explore the finest vehicles—from powerful sports cars 🚘💨",
+    description: "🚗✨ Next.js Car Showroom: Explore top-tier vehicles, from sleek sports cars to luxury rides. 🚘💨 Fast, responsive, and built for the ultimate car-buying experience! 🚀",
     link: "https://bm-nextjs-assignment01.vercel.app/"
   },
   {
     src: project10,
     alt: "ToDo List",
     title: "ToDo List",
-    description: "📝✅ Stay organized and on top of your tasks with this simple yet powerful JavaScript To-Do List! Add, complete, and delete tasks effortlessly to boost your productivity and keep track of your goals🌟.",
+    description: "📝✅ JavaScript To-Do List: Stay productive by adding, completing, and deleting tasks with ease. 🌟 Track your goals and stay organized effortlessly! 🚀",
     link: "https://java-script-to-do-list-alpha.vercel.app/"
   },
   {
     src: project11,
     alt: "Chat AI",
     title: "Chat AI",
-    description: "🤖💬 Experience the future of communication with our React-based AI Chat! Engage in seamless conversations, get instant answers, and explore endless possibilities—all powered by intelligent technology. Connect🌟.",
+    description: "🤖💬 React AI Chat: Dive into seamless, intelligent conversations powered by cutting-edge AI. 🌟 Explore the future of communication today! 🚀",
     link: "https://chat-ai-one-gamma.vercel.app/"
   },
   {
     src: project12,
     alt: "Api Weather App ",
     title: "JavaScript Api Weather App",
-    description: "☀️🌧️ Stay updated with the weather using our JavaScript Weather App! Just enter your city, and get real-time temperature, conditions, and forecasts at your fingertips. 🌍✨",
+    description: "🌦️ JavaScript Weather App: Enter your city to get real-time temperatures and forecasts instantly. 🌍✨ Stay updated, rain or shine! ☀️🌧️",
     link: "https://javascript-api-weather-app.netlify.app/"
+  },
+  {
+    src: project13,
+    alt: "Hackathon Resume Builder",
+    title: "Hackathon Resume Builder",
+    description: "🚀 Hackathon Resume Builder: Built with HTML, CSS & TypeScript, easily create, edit, and download resumes. 📝✅ Responsive, fast, and user-friendly! 🌟📄",
+    link: "https://hackathon-omega-six.vercel.app/"
+  },
+  {
+    src: project14,
+    alt: "Next.js 15 Blog",
+    title: "Next.js 15 Blog",
+    description: "🌐 Next.js 15 Blog: Built with the latest features of Next.js 15, offering fast performance and seamless navigation. 🚀📝 Stay updated with engaging posts and smooth user experience!🌟",
+    link: "https://nextjs-15-and-chat-bot.vercel.app/"
+  },{
+    src: project15,
+    alt: "Shadcn UI and Radix UI Blog",
+    title: "Shadcn UI and Radix UI Blog",
+    description: "Explore customizable, accessible UI components with ShadCN and Radix UI for modern web development. ⚙️✨ Build sleek, responsive interfaces effortlessly!",
+    link: "https://bm-shadcn-ui-and-radix-ui.vercel.app/"
+  },
+  {
+    src: project16,
+    alt: "Figma UI/UX Ddsgnr Website",
+    title: "Figma UI/UX Ddsgnr Website",
+    description: "🎨 Figma to Next.js Conversion: Transform stunning Figma UI/UX designs into responsive websites using Next.js, Tailwind CSS, and TypeScript. 🚀✨ Pixel-perfect, fast, and modern! 🌐",
+    link: "https://bm-shadcn-ui-and-radix-ui.vercel.app/"
+  },
+  {
+    src: project17,
+    alt: "Hackathon Practice figma UI/UX E-Commece website",
+    title: "Hackathon Practice figma UI/UX E-Commece website",
+    description: "🛍️ Hackathon E-Commerce Site: Convert Figma UI/UX designs into a responsive e-commerce website with Next.js, Tailwind CSS, and TypeScript. ⚡🚀 Fast, modern, and pixel-perfect! 🎨",
+    link: "https://hackathon-practice-ecommerce.vercel.app/"
+  },
+  {
+    src: project18,
+    alt: "Figma UI/UX Hackathon FoodTuck Website",
+    title: "Figma UI/UX Hackathon FoodTuck Website",
+    description: "🚚✨ Hackathon Food Truck Website: Transform Figma UI/UX designs into a responsive site using Next.js, Tailwind CSS, and TypeScript. 🎨🚀 Fast, interactive, and pixel-perfect! 🌟",
+    link: "https://ui-ux-hackathon-foodtuck-website.vercel.app/"
+  },
+  {
+    src: project19,
+    alt: "Programming Languages Blog",
+    title: "Programming Languages Blog",
+    description: "💻 Programming Languages Blog: Explore the world of programming languages, from basics to advanced concepts. 🚀✨ Stay updated, learn tips, and enhance your coding skills! 📚",
+    link: "https://nextjs-blog-website-dusky.vercel.app/"
+  },
+  {
+    src: project20,
+    alt: "Server Side API Fetch Recipe App",
+    title: "Server Side API Fetch Recipe App",
+    description: "🍳 Server-Side Recipe App: Fetch delicious recipes using APIs with server-side rendering for fast, seamless performance. 🌐✨ Explore, cook, and enjoy! 🥘🚀",
+    link: "https://server-side-api-fetch.vercel.app/"
   },
 ];
 
@@ -134,11 +197,11 @@ const Project = () => {
                 </div>
                 <div className="w-full p-4 bg-slate-500 h-[220px]">
                   <Link href={project.link}>
-                    <h1 className="text-2xl font-serif text-bold text-black hover:uppercase hover:text-gray-900 transition-colors duration-300 cursor-pointer mb-3">
+                    <h1 className="text-[20px] font-serif text-bold text-black hover:uppercase hover:text-gray-900 transition-colors duration-300 cursor-pointer mb-3">
                       {project.title}
                     </h1>
                   </Link>
-                  <p className="mb-4 text-white">
+                  <p className="mb-4 text-white text-[14px]">
                     {project.description}
                   </p>
                 </div>
