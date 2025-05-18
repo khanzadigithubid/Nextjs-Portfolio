@@ -2,134 +2,180 @@
 
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
-  const notify = () => toast("submit....");
+  const notify = () => toast.success("Message sent successfully!", {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+  });
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget); // Using event.currentTarget for proper form reference
+    const formData = new FormData(event.currentTarget);
     formData.append("access_key", "dbda848b-a2a9-4954-88c7-5e5362feae49");
 
-    const object = Object.fromEntries(formData.entries()); // Extracting form entries
+    const object = Object.fromEntries(formData.entries());
     const json = JSON.stringify(object);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: json
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      });
 
-    const result = await response.json();
-    if (result.success) {
-      console.log(result);
+      const result = await response.json();
+      if (result.success) {
+        notify();
+        event.currentTarget.reset();
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
     }
   }
 
   return (
-    <>
-      <section data-aos="fade-down" data-aos-duration="3000" className="bg-white">
-        <div
-          id="map"
-          className="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat"
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11672.945750644447!2d-122.42107853750231!3d37.7730507907087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858070cc2fbd55%3A0xa71491d736f62d5c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1619524992238!5m2!1sen!2sus"
-            width="100%"
-            height={480}
-            style={{ border: 0 }}
-            loading="lazy"
-          />
+    <section className="bg-gradient-to-b from-white to-slate-50 py-24">
+      <div className="container mx-auto px-5">
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <div className="inline-block mb-4">
+            <div className="flex items-center justify-center space-x-2 text-slate-600">
+              <FaEnvelope className="text-slate-500" />
+              <span className="text-sm font-medium">Get in Touch</span>
+            </div>
+            <div className="w-24 h-1 bg-slate-300 mx-auto mt-2"></div>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-slate-800 mb-4">
+            Contact Me
+          </h1>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Let's discuss your project and create something amazing together
+          </p>
         </div>
-        <div className="container px-6 md:px-12">
-          <div className="block rounded-lg bg-slate-700 px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px] border border-gray-300">
-            <div className="flex flex-wrap">
-              <div className="mb-13 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
-                <form onSubmit={handleSubmit}>
-                  <div className="relative mb-6">
-                    <input
-                      type="text"
-                      className="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary"
-                      id="example" name="name" required placeholder="Name"
-                    />
-                    <label
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary"
-                      htmlFor="example"
-                    ></label>
-                  </div>
-                  <div className="relative mb-6">
-                    <input
-                      type="email"
-                      className="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary"
-                      id="exampleInput91" name="email" required placeholder="Email address"
-                    />
-                    <label
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary"
-                      htmlFor="email"
-                    ></label>
-                  </div>
-                  <div className="relative mb-6">
-                    <textarea
-                      className="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100"
-                      id="exampleFormControlTextarea1"
-                      rows={3}
-                      name="message"
-                      required
-                      placeholder="Message"
-                    />
-                    <label
-                      htmlFor="message"
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary"
-                    ></label>
-                  </div>
-                  <button
-                    onClick={notify}
-                    type="submit"
-                    className="mb-6 w-full rounded-lg bg-gradient-to-r from-sky-500 to-sky-600 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal transition-all duration-300 ease-in-out hover:from-sky-600 hover:to-sky-900 hover:bg-gradient-to-r"
-                  >
-                    Submit
-                  </button>
-                  <ToastContainer />
-                </form>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div className="bg-white rounded-2xl shadow-lg p-8" data-aos="fade-right">
+            <h2 className="text-2xl font-semibold text-slate-800 mb-6">Send a Message</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm font-medium text-slate-700">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 transition-colors duration-200"
+                  placeholder="Your name"
+                />
               </div>
-              <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
-                <div className="flex flex-wrap">
-                  <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:w-full lg:px-6 xl:w-6/12">
-                    <div className="flex items-start">
-                      <div className="shrink-0">
-                        <div className="inline-block rounded-md bg-sky-300 p-4 text-primary">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            className="h-6 w-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M9 12h6m-3-3v6"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="ml-6 grow">
-                        <p className="mb-2 font-bold">GMAIL</p>
-                        <p className="text-sm text-white">memonbisma22@gmail.com</p>
-                      </div>
-                    </div>
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium text-slate-700">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 transition-colors duration-200"
+                  placeholder="Your email"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-medium text-slate-700">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={4}
+                  className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 transition-colors duration-200"
+                  placeholder="Your message"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-sky-500 to-sky-600 text-white py-3 rounded-lg font-medium hover:from-sky-600 hover:to-sky-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-8" data-aos="fade-left">
+            {/* Map */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.790343352196!2d67.0282!3d24.8607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f0a0a0a0a0a%3A0x0!2zMjTCsDUxJzM4LjUiTiA2N8KwMDEnNDEuNSJF!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                loading="lazy"
+                className="rounded-t-2xl"
+                title="Karachi Location"
+              />
+            </div>
+
+            {/* Contact Details */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <h2 className="text-2xl font-semibold text-slate-800 mb-6">Contact Information</h2>
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 bg-sky-100 rounded-lg">
+                    <FaEnvelope className="text-sky-600" />
                   </div>
+                  <div>
+                    <p className="text-sm font-medium text-slate-600">Email</p>
+                    <a href="mailto:memonbisma22@gmail.com" className="text-slate-800 hover:text-sky-600 transition-colors duration-200">
+                      memonbisma22@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 bg-sky-100 rounded-lg">
+                    <FaPhone className="text-sky-600" />
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 bg-sky-100 rounded-lg">
+                    <FaMapMarkerAlt className="text-sky-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-slate-600">Location</p>
+                    <p className="text-slate-800">Karachi, Pakistan</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="mt-8 pt-8 border-t border-slate-200">
+                <h3 className="text-lg font-semibold text-slate-800 mb-4">Connect with Me</h3>
+                <div className="flex space-x-4">
+                  <a href="https://www.linkedin.com/in/khanzadi-wazir-ali-7a97832b6/" className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200">
+                    <FaLinkedin className="text-slate-700" />
+                  </a>
+                  <a href="https://github.com/khanzadigithubid/" className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200">
+                    <FaGithub className="text-slate-700" />
+                  </a>
+                  <a href="https://x.com/Khanzadi0099" className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200">
+                    <FaTwitter className="text-slate-700" />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+      <ToastContainer />
+    </section>
   );
 }

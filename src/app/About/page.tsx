@@ -2,55 +2,152 @@
 
 import Image from "next/image";
 import me from "../my.jpg";
+import { FaGraduationCap, FaCode, FaLightbulb, FaBook, FaAward, FaCheckCircle, FaStar, FaRegClock } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <>
-      <section className="text-slate-400 body-font overflow-hidden bg-gray-100"> {/* Add a background color here */}
-        <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-          
-          {/* Profile Image */}
-          <div className="relative group">
-            <Image
-              src={me}
-              alt="me2n"
-              height={250}
-              width={250}
-              className="rounded-full shadow-xl transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3 group-hover:animate-wiggle"
-              data-aos="zoom-in"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            />
-            {/* Circular Background Decoration */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-300 to-white opacity-20 rounded-full"></div>
-          </div>
-
-          {/* Text Content */}
-          <div className="text-center lg:w-2/3 w-full mt-10">
-            <h1 className="ml-3 text-5xl font-serif font-bold text-gray-900 hover:text-blue-300 transition-colors duration-500">
+    <section className="text-slate-700 body-font bg-gradient-to-b from-white to-slate-50 py-20">
+      <div className="container mx-auto px-5">
+        <div className="max-w-5xl mx-auto">
+          {/* Header Section */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <div className="flex items-center space-x-2 text-slate-600">
+                <FaRegClock className="text-slate-500" />
+                <span className="text-sm font-medium">Professional Profile</span>
+              </div>
+              <div className="w-24 h-1 bg-slate-400 mx-auto mt-2"></div>
+            </div>
+            <h1 className="text-4xl font-serif font-bold text-slate-800 mb-4">
               About Me
             </h1>
-            <h2
-              className="title-font sm:text-4xl text-3xl mb-4 text-gray-900 font-serif font-semibold relative overflow-hidden group"
-              data-aos="fade-up"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="1500"
-            >
-              {/* Underline Animation */}
-              <div className="absolute inset-x-0 bottom-0 h-1 bg-yellow-500 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></div>
-            </h2>
-            <p
-              className="mb-8 leading-relaxed text-lg text-gray-800 transition-opacity duration-700 ease-in-out group-hover:opacity-90"
-              data-aos="fade-up"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            >
-              I am an experienced frontend developer, currently expanding my expertise by learning Next.js for both backend and frontend development. My journey in tech was significantly shaped by completing a TypeScript course at the Governor Sindh IT Initiative (GIAIC). It was here that I also embarked on learning Cloud Applied Generative AI Engineering with cutting-edge technologies. As a senior student at GIAIC, I take pride in assisting my peers in their learning journeys. Additionally, I am pursuing an Associate Degree Of Commerce (ADC PART 2).
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              A passionate developer focused on creating innovative solutions through technology and continuous learning.
             </p>
           </div>
+
+          {/* Profile Section */}
+          <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
+            {/* Profile Image */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative">
+                <Image
+                  src={me}
+                  alt="Professional portrait"
+                  height={320}
+                  width={320}
+                  className="rounded-full shadow-xl transition-all duration-500 ease-in-out hover:shadow-2xl"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Introduction Text */}
+            <div className="flex-1 text-center md:text-left">
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-3xl font-serif font-bold text-slate-800 mb-4">
+                    Frontend Developer & AI Enthusiast
+                  </h2>
+                  <p className="text-lg leading-relaxed text-slate-600">
+                    I am an experienced frontend developer, currently expanding my expertise by learning Next.js for both backend and frontend development. My journey in tech was significantly shaped by completing a TypeScript course at the Governor Sindh IT Initiative (GIAIC).
+                  </p>
+                </div>
+
+                {/* Professional Badges */}
+                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                  <div className="flex items-center space-x-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">
+                    <FaAward className="text-slate-500" />
+                    <span>GIAIC Certified</span>
+                  </div>
+                  <div className="flex items-center space-x-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">
+                    <FaStar className="text-slate-500" />
+                    <span>TypeScript Expert</span>
+                  </div>
+                  <div className="flex items-center space-x-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">
+                    <FaCheckCircle className="text-slate-500" />
+                    <span>ADC PAT 2</span>
+                  </div>
+                </div>
+
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                  <span className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">Frontend Development</span>
+                  <span className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">Next.js</span>
+                  <span className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">AI Engineering</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Key Areas Section */}
+          <div className="grid md:grid-cols-2 gap-8 mb-20">
+            <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="1000">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-slate-100 rounded-lg mr-4">
+                  <FaCode className="text-slate-700 text-xl" />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-800">Technical Expertise</h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                It was here that I also embarked on learning Cloud Applied Generative AI Engineering with cutting-edge technologies. As a senior student at GIAIC, I take pride in assisting my peers in their learning journeys.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-slate-100 rounded-lg mr-4">
+                  <FaGraduationCap className="text-slate-700 text-xl" />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-800">Education</h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                Additionally, I am pursuing an Associate Degree Of Commerce (ADC PART 2), combining my technical expertise with business acumen to create comprehensive solutions.
+              </p>
+            </div>
+          </div>
+
+          {/* Goals Section */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="1000">
+            <div className="flex items-center mb-6">
+              <div className="p-3 bg-slate-100 rounded-lg mr-4">
+                <FaLightbulb className="text-slate-700 text-xl" />
+              </div>
+              <h3 className="text-xl font-semibold text-slate-800">Future Goals</h3>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <h4 className="font-medium text-slate-800">Short Term</h4>
+                <ul className="space-y-2 text-slate-600">
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-slate-400 rounded-full mr-2"></span>
+                    Master advanced Next.js features
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-slate-400 rounded-full mr-2"></span>
+                    Enhance AI implementation skills
+                  </li>
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h4 className="font-medium text-slate-800">Long Term</h4>
+                <ul className="space-y-2 text-slate-600">
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-slate-400 rounded-full mr-2"></span>
+                    Lead innovative tech projects
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-slate-400 rounded-full mr-2"></span>
+                    Contribute to open-source community
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

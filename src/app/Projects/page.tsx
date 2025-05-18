@@ -1,16 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import { FaGithub, FaExternalLinkAlt, FaCode, FaStar, FaRegClock } from 'react-icons/fa';
+import Link from "next/link";
 
-import project1 from "../../../project1.jpg";
 import project2 from "../../../project2.jpg";
 import project3 from "../../../project3.jpg";
-import project4 from "../../../project4.jpg";
 import project5 from "../../../project5.jpg";
 import project6 from "../../../project6.jpg";
 import project7 from "../../../project7.jpg";
 import project8 from "../../../project8.jpg";
-import project9 from "../../../project9.jpg";
 import project10 from "../../../project10.jpg";
 import project11 from "../../../project11.jpg";
 import project12 from "../../../project12.jpg";
@@ -18,11 +17,9 @@ import project13 from "../../../project13.jpg";
 import project14 from "../../../project14.jpg";
 import project15 from "../../../project15.jpg";
 import project16 from "../../../project16.jpg";
-import project17 from "../../../project17.jpg";
 import project18 from "../../../project18.jpg";
 import project19 from "../../../project19.jpg";
 import project20 from "../../../project20.jpg";
-import Link from "next/link";
 
 const projects = [
   {
@@ -47,13 +44,6 @@ const projects = [
     link: "https://reacts-tradingwebsite.netlify.app/"
   },
   {
-    src: project4,
-    alt: "Shadcn ui Table Component",
-    title: "Shadcn ui Table Component",
-    description: "The ShadCN UI Table component is a beautifully styled, customizable table designed for modern web apps 📊.",
-    link: "https://github.com/khanzadigithubid/Shadcn-ui-Table-Component"
-  },
-  {
     src: project5,
     alt: "Google Search App",
     title: "API Google Search App",
@@ -68,25 +58,11 @@ const projects = [
     link: "https://github.com/khanzadigithubid/API-Recipe-App"
   },
   {
-    src: project1,
-    alt: "Animal Website",
-    title: "Animal Website",
-    description: "The Animals Website is an interactive platform designed to celebrate the beauty and diversity of wildlife! 🐾🌿 Built with HTML, CSS, and JavaScript. 🦁🐘",
-    link: "https://animalswebsite12.netlify.app/"
-  },
-  {
     src: project8,
     alt: "Weather App",
     title: "API Weather App",
     description: "🌍 Weather API: Access real-time weather data, forecasts, and alerts for any location worldwide. 🌦️📲 Enhance your applications with reliable, up-to-date weather insights! 🌈✨",
     link: "https://github.com/khanzadigithubid/API-Weather-Project"
-  },
-  {
-    src: project9,
-    alt: "Car Showroom",
-    title: "Car Showroom Website",
-    description: "🚗✨ Next.js Car Showroom: Explore top-tier vehicles, from sleek sports cars to luxury rides. 🚘💨 Fast, responsive, and built for the ultimate car-buying experience! 🚀",
-    link: "https://bm-nextjs-assignment01.vercel.app/"
   },
   {
     src: project10,
@@ -137,13 +113,6 @@ const projects = [
     link: "https://bm-shadcn-ui-and-radix-ui.vercel.app/"
   },
   {
-    src: project17,
-    alt: "Hackathon Practice figma UI/UX E-Commece website",
-    title: "Hackathon Practice figma UI/UX E-Commece website",
-    description: "🛍️ Hackathon E-Commerce Site: Convert Figma UI/UX designs into a responsive e-commerce website with Next.js, Tailwind CSS, and TypeScript. ⚡🚀 Fast, modern, and pixel-perfect! 🎨",
-    link: "https://hackathon-practice-ecommerce.vercel.app/"
-  },
-  {
     src: project18,
     alt: "Figma UI/UX Hackathon FoodTuck Website",
     title: "Figma UI/UX Hackathon FoodTuck Website",
@@ -168,40 +137,93 @@ const projects = [
 
 const Project = () => {
   return (
-    <section className="text-gray-900 body-font bg-white"> {/* Set solid background color */}
+    <section className="text-gray-900 body-font bg-gradient-to-b from-white to-slate-50">
       <div className="container px-5 py-24 mx-auto">
+        {/* Header Section */}
         <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="flex justify-center items-center pb-14 text-5xl font-serif font-bold text-gray-900 hover:text-pink-600 animate-bounce hover:uppercase">
-            <span className="text-gray-900 text-5xl">Projects</span>
+          <div className="inline-block mb-4">
+            <div className="flex items-center justify-center space-x-2 text-slate-600">
+              <FaCode className="text-slate-500" />
+              <span className="text-sm font-medium">Featured Projects</span>
+            </div>
+            <div className="w-24 h-1 bg-slate-300 mx-auto mt-2"></div>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-slate-800 mb-4">
+            Projects
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-3xl text-zinc-900 font-serif">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-lg text-slate-600">
             Explore some of the amazing projects built with passion and creativity!
           </p>
         </div>
+
+        {/* Project Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
+            <div className="p-3 bg-slate-100 rounded-lg">
+              <FaCode className="text-slate-700" />
+            </div>
+            <div>
+              <h3 className="text-sm font-medium text-slate-800">20+ Projects</h3>
+              <p className="text-xs text-slate-600">Completed with excellence</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
+            <div className="p-3 bg-slate-100 rounded-lg">
+              <FaStar className="text-slate-700" />
+            </div>
+            <div>
+              <h3 className="text-sm font-medium text-slate-800">Quality Code</h3>
+              <p className="text-xs text-slate-600">Clean & maintainable</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
+            <div className="p-3 bg-slate-100 rounded-lg">
+              <FaRegClock className="text-slate-700" />
+            </div>
+            <div>
+              <h3 className="text-sm font-medium text-slate-800">Latest Tech</h3>
+              <p className="text-xs text-slate-600">Modern frameworks & tools</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Projects Grid */}
         <div className="flex flex-wrap -m-4">
           {projects.map((project, index) => (
             <div
               key={index}
               className="p-4 lg:w-1/4 md:w-1/2"
-              data-aos="flip-right" data-aos-duration="2000"
+              data-aos="fade-up"
+              data-aos-duration={1000 + (index * 100)}
             >
-              <div className="flex flex-col items-center text-center border border-gray-300 rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl relative">
-                <div className="relative h-[200px] w-full overflow-hidden rounded-t-lg transition-transform transform hover:scale-110">
+              <div className="flex flex-col h-full bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div className="relative h-[200px] w-full overflow-hidden">
                   <Image
                     src={project.src}
                     alt={project.alt}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
                     layout="fill"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50 transition-opacity hover:opacity-40"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 right-4 flex justify-between">
+                      <Link href={project.link} target="_blank" rel="noopener noreferrer" 
+                            className="p-2 bg-white/90 rounded-lg hover:bg-white transition-colors duration-300">
+                        <FaExternalLinkAlt className="text-slate-800" />
+                      </Link>
+                      <Link href={project.link} target="_blank" rel="noopener noreferrer"
+                            className="p-2 bg-white/90 rounded-lg hover:bg-white transition-colors duration-300">
+                        <FaGithub className="text-slate-800" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                <div className="w-full p-4 bg-slate-500 h-[220px]">
-                  <Link href={project.link}>
-                    <h1 className="text-[20px] font-serif text-bold text-black hover:uppercase hover:text-gray-900 transition-colors duration-300 cursor-pointer mb-3">
+                <div className="flex-1 p-6 bg-white">
+                  <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                    <h2 className="text-xl font-semibold text-slate-800 mb-3 hover:text-slate-600 transition-colors duration-300">
                       {project.title}
-                    </h1>
+                    </h2>
                   </Link>
-                  <p className="mb-4 text-white text-[14px]">
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>

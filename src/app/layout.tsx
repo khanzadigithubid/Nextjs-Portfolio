@@ -20,22 +20,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}> 
-        <header className="text-white body-font bg-gradient-to-r from-slate-600">
-          <div className="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
-            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <header className="text-white body-font bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50">
+          <div className="container mx-auto flex flex-wrap py-4 px-6 flex-col md:flex-row items-center justify-between">
+            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 group">
               <div className="avatar">
-                <div className="ring-primary ring-offset-base-100 w-20 rounded-full">
-                  <Image src={me} alt="me" />
+                <div className="ring-2 ring-slate-400/30 ring-offset-2 ring-offset-slate-900 w-20 rounded-full overflow-hidden transition-all duration-300 group-hover:ring-slate-400/50">
+                  <Image src={me} alt="me" className="object-cover" />
                 </div>
               </div>
-              <h1 className="ml-3 text-4xl font-serif font-bold text-white animate-pulse hover:uppercase">
-                <span className="text-5xl hover:text-black">PortFolio</span>
+              <h1 className="ml-4 text-3xl font-serif font-bold">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-white hover:from-slate-200 hover:to-white transition-all duration-300">
+                  PortFolio
+                </span>
               </h1>
             </a>
-            <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center justify-center text-2xl gap-7 font-sans font-semibold">
+            <nav className="md:ml-auto flex flex-wrap items-center justify-center text-base gap-6 font-sans">
               {["Home", "About", "Skills", "Projects", "Services", "Contact"].map((item) => (
-                <Link key={item} href={`/${item}`} className="mr-5 transform hover:scale-110 motion-reduce:transform-none hover:text-yellow-400 hover:uppercase transition duration-300">
-                  {item}
+                <Link 
+                  key={item} 
+                  href={`/${item}`} 
+                  className="relative group px-1"
+                >
+                  <span className="text-slate-200 hover:text-white transition-colors duration-200">
+                    {item}
+                  </span>
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[2px] bg-slate-400/50 group-hover:w-full transition-all duration-300"></span>
                 </Link>
               ))}
             </nav>
