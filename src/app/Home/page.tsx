@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaDownload, FaArrowRight, FaCode, FaLaptopCode, FaRobot, FaAward, FaRegClock, FaStar, FaCheckCircle } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaDownload, FaArrowRight, FaCode, FaLaptopCode, FaRobot, FaAward, FaRegClock } from 'react-icons/fa';
 import Image from "next/image";
 import me from "../../../About.jpg";
 import Typewriter from 'typewriter-effect';

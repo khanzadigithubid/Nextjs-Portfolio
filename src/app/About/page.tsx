@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import me from "../my.jpg";
-import { FaGraduationCap, FaCode, FaLightbulb, FaBook, FaAward, FaCheckCircle, FaStar, FaRegClock } from 'react-icons/fa';
+import { FaGraduationCap, FaCode, FaLightbulb, FaAward, FaCheckCircle, FaStar, FaRegClock } from 'react-icons/fa';
 
 const About = () => {
   return (
