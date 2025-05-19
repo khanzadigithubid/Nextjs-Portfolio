@@ -91,14 +91,6 @@ const Home = () => {
                   <span className="mr-2">Get in Touch</span>
                   <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
-                <Link 
-                  href="/home/resume.pdf"
-                  className="group inline-flex items-center px-6 py-3 border-2 border-slate-800 text-slate-800 rounded-lg hover:bg-slate-800 hover:text-white transition-all duration-300"
-                  download="Resume.pdf"
-                >
-                  <FaDownload className="mr-2" />
-                  <span>Download CV</span>
-                </Link>
               </div>
 
               {/* Social Links */}
