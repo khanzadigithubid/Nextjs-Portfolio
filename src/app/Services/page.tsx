@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { FaCode, FaPaintBrush, FaMobileAlt, FaCheckCircle, FaArrowRight, FaShoppingCart, FaBullhorn, FaPalette, FaStar, FaAward, FaRegLightbulb, FaRocket, FaHandshake } from 'react-icons/fa';
+import { FaCode, FaPaintBrush, FaMobileAlt, FaCheckCircle, FaArrowRight, FaShoppingCart, FaBullhorn, FaPalette, FaStar, FaAward, FaRegLightbulb, FaRocket } from 'react-icons/fa';
 import Link from "next/link";
 
 export default function Services() {

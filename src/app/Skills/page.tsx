@@ -2,7 +2,7 @@
 import 'aos/dist/aos.css'; // Import AOS styles
 import { useEffect } from 'react';
 import AOS from 'aos';
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaShopify, FaSearch, FaShareAlt, FaRegClock, FaAward, FaCode, FaPalette, FaTools } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaShopify, FaSearch, FaShareAlt, FaCode } from 'react-icons/fa';
 import { SiTailwindcss, SiTypescript, SiNextdotjs, SiCanva, SiFigma, SiOpenai } from 'react-icons/si';
 
 interface SkillCardProps {
