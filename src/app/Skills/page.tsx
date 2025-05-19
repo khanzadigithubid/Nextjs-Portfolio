@@ -2,7 +2,7 @@
 import 'aos/dist/aos.css'; // Import AOS styles
 import { useEffect } from 'react';
 import AOS from 'aos';
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaMicrosoft, FaShopify, FaSearch, FaShareAlt, FaRegClock, FaAward } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaShopify, FaSearch, FaShareAlt, FaRegClock, FaAward, FaCode, FaPalette, FaTools } from 'react-icons/fa';
 import { SiTailwindcss, SiTypescript, SiNextdotjs, SiCanva, SiFigma, SiOpenai } from 'react-icons/si';
 
 interface SkillCardProps {
@@ -13,6 +13,7 @@ interface SkillCardProps {
   dataAos?: string;
   dataAosDelay?: string;
   level?: string;
+  category?: string;
 }
 
 function SkillCard({
@@ -22,26 +23,42 @@ function SkillCard({
   svgIcon,
   dataAos,
   dataAosDelay,
-  level
+  level,
+  category
 }: SkillCardProps) {
+  const getLevelColor = (level: string) => {
+    switch (level?.toLowerCase()) {
+      case 'expert': return 'bg-green-500';
+      case 'advanced': return 'bg-blue-500';
+      case 'intermediate': return 'bg-yellow-500';
+      default: return 'bg-gray-500';
+    }
+  };
+
   return (
     <div
-      className="group relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+      className="group relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100"
       data-aos={dataAos}
       data-aos-delay={dataAosDelay}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="relative p-6">
         <div className="flex flex-col items-center">
-          <div className={`p-4 rounded-lg ${colorClass} mb-4 transition-transform duration-300 group-hover:scale-110`}>
+          <div className={`p-4 rounded-lg ${colorClass} mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
             {svgIcon}
           </div>
           <h3 className="text-xl font-semibold text-slate-800 mb-2">{title}</h3>
           <p className="text-slate-600 text-center text-sm leading-relaxed mb-3">{description}</p>
           {level && (
-            <div className="flex items-center space-x-1 text-sm text-slate-500">
-              <FaAward className="text-slate-400" />
-              <span>{level}</span>
+            <div className="flex items-center space-x-2 text-sm">
+              <div className={`px-2 py-1 rounded-full ${getLevelColor(level)} text-white text-xs font-medium`}>
+                {level}
+              </div>
+            </div>
+          )}
+          {category && (
+            <div className="mt-2 text-xs text-slate-500 font-medium">
+              {category}
             </div>
           )}
         </div>
@@ -55,7 +72,8 @@ export default function Skills() {
     AOS.init({ 
       duration: 800,
       once: true,
-      offset: 100
+      offset: 100,
+      easing: 'ease-out-cubic'
     });
   }, []);
 
@@ -66,16 +84,16 @@ export default function Skills() {
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <div className="flex items-center justify-center space-x-2 text-slate-600">
-              <FaRegClock className="text-slate-500" />
-              <span className="text-sm font-medium">Technical Skills</span>
+              <FaCode className="text-slate-500" />
+              <span className="text-sm font-medium tracking-wider">TECHNICAL SKILLS</span>
             </div>
-            <div className="w-24 h-1 bg-slate-300 mx-auto mt-2"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-slate-300 to-slate-100 mx-auto mt-2"></div>
           </div>
           <h1 className="text-4xl font-serif font-bold text-slate-800 mb-4">
             Technical Expertise
           </h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            A comprehensive showcase of my technical skills and professional capabilities
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            A comprehensive showcase of my technical skills and professional capabilities, demonstrating expertise across various domains of web development and design.
           </p>
         </div>
 
@@ -88,6 +106,7 @@ export default function Skills() {
             svgIcon={<FaHtml5 size={40} className="text-white" />}
             dataAos="fade-up"
             level="Advanced"
+            category="Frontend"
           />
           <SkillCard
             title="CSS"
@@ -97,6 +116,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="100"
             level="Advanced"
+            category="Frontend"
           />
           <SkillCard
             title="Tailwind CSS"
@@ -106,6 +126,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="200"
             level="Expert"
+            category="Frontend"
           />
           <SkillCard
             title="JavaScript"
@@ -115,7 +136,9 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="300"
             level="Advanced"
+            category="Frontend"
           />
+
           <SkillCard
             title="TypeScript"
             description="Experience with type-safe JavaScript development."
@@ -124,6 +147,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="400"
             level="Intermediate"
+            category="Backend"
           />
           <SkillCard
             title="React.js"
@@ -133,6 +157,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="500"
             level="Advanced"
+            category="Backend"
           />
           <SkillCard
             title="Next.js"
@@ -142,6 +167,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="600"
             level="Intermediate"
+            category="Backend"
           />
           <SkillCard
             title="Node.js"
@@ -151,7 +177,9 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="700"
             level="Intermediate"
+            category="Backend"
           />
+
           <SkillCard
             title="Canva"
             description="Expert in creating professional graphics and visual content."
@@ -160,6 +188,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="800"
             level="Expert"
+            category="Design"
           />
           <SkillCard
             title="Figma"
@@ -169,6 +198,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="900"
             level="Intermediate"
+            category="Design"
           />
           <SkillCard
             title="AI Tools"
@@ -178,6 +208,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="1000"
             level="Advanced"
+            category="Tools"
           />
           <SkillCard
             title="Shopify"
@@ -187,7 +218,9 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="1100"
             level="Intermediate"
+            category="Tools"
           />
+
           <SkillCard
             title="Git"
             description="Proficient in version control and collaborative development."
@@ -196,6 +229,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="1200"
             level="Advanced"
+            category="Version Control"
           />
           <SkillCard
             title="GitHub"
@@ -205,15 +239,7 @@ export default function Skills() {
             dataAos="fade-up"
             dataAosDelay="1300"
             level="Advanced"
-          />
-          <SkillCard
-            title="MS Office"
-            description="Proficient in Microsoft Office suite for business productivity."
-            colorClass="bg-blue-600"
-            svgIcon={<FaMicrosoft size={40} className="text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="1400"
-            level="Expert"
+            category="Version Control"
           />
           <SkillCard
             title="SEO"
@@ -221,8 +247,9 @@ export default function Skills() {
             colorClass="bg-teal-600"
             svgIcon={<FaSearch size={40} className="text-white" />}
             dataAos="fade-up"
-            dataAosDelay="1500"
+            dataAosDelay="1400"
             level="Intermediate"
+            category="Marketing"
           />
           <SkillCard
             title="Social Media Marketing"
@@ -230,8 +257,9 @@ export default function Skills() {
             colorClass="bg-pink-500"
             svgIcon={<FaShareAlt size={40} className="text-white" />}
             dataAos="fade-up"
-            dataAosDelay="1600"
+            dataAosDelay="1500"
             level="Advanced"
+            category="Marketing"
           />
         </div>
       </div>
