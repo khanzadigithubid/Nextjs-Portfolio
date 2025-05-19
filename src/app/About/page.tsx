@@ -17,7 +17,7 @@ const About = () => {
                 <span className="text-sm font-medium">Professional Profile</span>
               </div>
               <div className="w-24 h-1 bg-slate-400 mx-auto mt-2"></div>
-            </div>
+          </div>
             <h1 className="text-4xl font-serif font-bold text-slate-800 mb-4">
               About Me
             </h1>
@@ -145,9 +145,9 @@ const About = () => {
               </div>
             </div>
           </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 };
 

@@ -2,18 +2,19 @@
 
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
-  const notify = () => toast.success("Message sent successfully!", {
-    position: "top-right",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-  });
+  const notify = () =>
+    toast.success("Message sent successfully!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -28,17 +29,19 @@ export default function Contact() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json"
+          Accept: "application/json",
         },
-        body: json
+        body: json,
       });
 
       const result = await response.json();
       if (result.success) {
         notify();
         event.currentTarget.reset();
+      } else {
+        toast.error("Failed to send message. Please try again.");
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message. Please try again.");
     }
   }
@@ -59,7 +62,7 @@ export default function Contact() {
             Contact Me
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Let's discuss your project and create something amazing together
+            Let&apos;s discuss your project and create something amazing together
           </p>
         </div>
 
@@ -135,14 +138,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-slate-600">Email</p>
-                    <a href="mailto:memonbisma22@gmail.com" className="text-slate-800 hover:text-sky-600 transition-colors duration-200">
+                    <a
+                      href="mailto:memonbisma22@gmail.com"
+                      className="text-slate-800 hover:text-sky-600 transition-colors duration-200"
+                    >
                       memonbisma22@gmail.com
                     </a>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-sky-100 rounded-lg">
-                    <FaPhone className="text-sky-600" />
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -160,13 +161,25 @@ export default function Contact() {
               <div className="mt-8 pt-8 border-t border-slate-200">
                 <h3 className="text-lg font-semibold text-slate-800 mb-4">Connect with Me</h3>
                 <div className="flex space-x-4">
-                  <a href="https://www.linkedin.com/in/khanzadi-wazir-ali-7a97832b6/" className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200">
+                  <a
+                    href="https://www.linkedin.com/in/khanzadi-wazir-ali-7a97832b6/"
+                    className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200"
+                    target="_blank" rel="noopener noreferrer"
+                  >
                     <FaLinkedin className="text-slate-700" />
                   </a>
-                  <a href="https://github.com/khanzadigithubid/" className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200">
+                  <a
+                    href="https://github.com/khanzadigithubid/"
+                    className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200"
+                    target="_blank" rel="noopener noreferrer"
+                  >
                     <FaGithub className="text-slate-700" />
                   </a>
-                  <a href="https://x.com/Khanzadi0099" className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200">
+                  <a
+                    href="https://x.com/Khanzadi0099"
+                    className="p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200"
+                    target="_blank" rel="noopener noreferrer"
+                  >
                     <FaTwitter className="text-slate-700" />
                   </a>
                 </div>

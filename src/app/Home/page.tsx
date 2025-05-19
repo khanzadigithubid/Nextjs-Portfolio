@@ -3,10 +3,9 @@
 import { FaGithub, FaLinkedin, FaDownload, FaArrowRight, FaCode, FaLaptopCode, FaRobot, FaAward, FaRegClock } from 'react-icons/fa';
 import Image from "next/image";
 import me from "../../../About.jpg";
-import Typewriter from 'typewriter-effect';
 import Link from "next/link";
 
-const Hero = () => {
+const Home = () => {
   return (
     <section className="bg-gradient-to-b from-white to-slate-50 text-gray-800 body-font min-h-screen flex items-center">
       <div className="container mx-auto flex px-5 py-20 md:flex-row flex-col items-center">
@@ -22,18 +21,7 @@ const Hero = () => {
                 <div className="w-20 h-1 bg-slate-400 mt-2"></div>
               </div>
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-slate-800">
-                <span className="block mb-2 text-slate-600">Hello, I'm</span>
-                <span className="text-slate-900 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
-                  <Typewriter
-                    options={{
-                      strings: ['Khanzadi Wazir Ali'],
-                      autoStart: true,
-                      loop: true,
-                      cursor: '|',
-                      delay: 50,
-                    }}
-                  />
-                </span>
+                <span className="block mb-2 text-slate-600">Hello, I am Khanzadi Wazir Ali</span>
               </h1>
               <div className="flex items-center justify-center md:justify-start space-x-3 text-slate-600">
                 <span className="h-1 w-12 bg-slate-400"></span>
@@ -157,4 +145,5 @@ const Hero = () => {
   );
 }
 
-export default Hero;
+export default Home;
+
