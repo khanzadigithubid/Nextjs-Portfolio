@@ -138,66 +138,66 @@ const projects = [
 const Project = () => {
   return (
     <section className="text-gray-900 body-font bg-gradient-to-b from-white to-slate-50">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-4 sm:px-5 py-12 sm:py-16 md:py-24 mx-auto">
         {/* Header Section */}
-        <div className="flex flex-col text-center w-full mb-20">
-          <div className="inline-block mb-4">
+        <div className="flex flex-col text-center w-full mb-12 sm:mb-16 md:mb-20">
+          <div className="inline-block mb-3 sm:mb-4">
             <div className="flex items-center justify-center space-x-2 text-slate-600">
               <FaCode className="text-slate-500" />
               <span className="text-sm font-medium">Featured Projects</span>
             </div>
-            <div className="w-24 h-1 bg-slate-300 mx-auto mt-2"></div>
+            <div className="w-20 sm:w-24 h-1 bg-slate-300 mx-auto mt-2"></div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-slate-800 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-800 mb-3 sm:mb-4">
             Projects
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-lg text-slate-600">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-lg text-slate-600 px-4 sm:px-0">
             Explore some of the amazing projects built with passion and creativity!
           </p>
         </div>
 
         {/* Project Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
-            <div className="p-3 bg-slate-100 rounded-lg">
-              <FaCode className="text-slate-700" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm">
+            <div className="p-2 sm:p-3 bg-slate-100 rounded-lg">
+              <FaCode className="text-slate-700 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-sm font-medium text-slate-800">20+ Projects</h3>
-              <p className="text-xs text-slate-600">Completed with excellence</p>
+              <h3 className="text-xs sm:text-sm font-medium text-slate-800">20+ Projects</h3>
+              <p className="text-[10px] sm:text-xs text-slate-600">Completed with excellence</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
-            <div className="p-3 bg-slate-100 rounded-lg">
-              <FaStar className="text-slate-700" />
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm">
+            <div className="p-2 sm:p-3 bg-slate-100 rounded-lg">
+              <FaStar className="text-slate-700 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-sm font-medium text-slate-800">Quality Code</h3>
-              <p className="text-xs text-slate-600">Clean & maintainable</p>
+              <h3 className="text-xs sm:text-sm font-medium text-slate-800">Quality Code</h3>
+              <p className="text-[10px] sm:text-xs text-slate-600">Clean & maintainable</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
-            <div className="p-3 bg-slate-100 rounded-lg">
-              <FaRegClock className="text-slate-700" />
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm">
+            <div className="p-2 sm:p-3 bg-slate-100 rounded-lg">
+              <FaRegClock className="text-slate-700 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-sm font-medium text-slate-800">Latest Tech</h3>
-              <p className="text-xs text-slate-600">Modern frameworks & tools</p>
+              <h3 className="text-xs sm:text-sm font-medium text-slate-800">Latest Tech</h3>
+              <p className="text-[10px] sm:text-xs text-slate-600">Modern frameworks & tools</p>
             </div>
           </div>
         </div>
 
         {/* Projects Grid */}
-        <div className="flex flex-wrap -m-4">
+        <div className="flex flex-wrap -m-2 sm:-m-4">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="p-4 lg:w-1/4 md:w-1/2"
+              className="p-2 sm:p-4 lg:w-1/4 md:w-1/2 w-full"
               data-aos="fade-up"
               data-aos-duration={1000 + (index * 100)}
             >
               <div className="flex flex-col h-full bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                <div className="relative h-[200px] w-full overflow-hidden">
+                <div className="relative h-[180px] sm:h-[200px] w-full overflow-hidden">
                   <Image
                     src={project.src}
                     alt={project.alt}
@@ -205,25 +205,25 @@ const Project = () => {
                     layout="fill"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4 flex justify-between">
+                    <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex justify-between">
                       <Link href={project.link} target="_blank" rel="noopener noreferrer" 
-                            className="p-2 bg-white/90 rounded-lg hover:bg-white transition-colors duration-300">
-                        <FaExternalLinkAlt className="text-slate-800" />
+                            className="p-1.5 sm:p-2 bg-white/90 rounded-lg hover:bg-white transition-colors duration-300">
+                        <FaExternalLinkAlt className="text-slate-800 text-sm sm:text-base" />
                       </Link>
                       <Link href={project.link} target="_blank" rel="noopener noreferrer"
-                            className="p-2 bg-white/90 rounded-lg hover:bg-white transition-colors duration-300">
-                        <FaGithub className="text-slate-800" />
+                            className="p-1.5 sm:p-2 bg-white/90 rounded-lg hover:bg-white transition-colors duration-300">
+                        <FaGithub className="text-slate-800 text-sm sm:text-base" />
                       </Link>
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 p-6 bg-white">
+                <div className="flex-1 p-4 sm:p-6 bg-white">
                   <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                    <h2 className="text-xl font-semibold text-slate-800 mb-3 hover:text-slate-600 transition-colors duration-300">
+                    <h2 className="text-lg sm:text-xl font-semibold text-slate-800 mb-2 sm:mb-3 hover:text-slate-600 transition-colors duration-300">
                       {project.title}
                     </h2>
                   </Link>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>
