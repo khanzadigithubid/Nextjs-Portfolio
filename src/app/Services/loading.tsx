@@ -1,0 +1,81 @@
+import Skeleton, { SkeletonCircle } from '../components/Skeleton';
+
+export default function Loading() {
+  return (
+    <section className="text-slate-700 body-font py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 dark:from-black dark:to-slate-900">
+      <div className="container mx-auto px-4 sm:px-5">
+        {/* Header Section */}
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <div className="inline-block mb-3 sm:mb-4">
+            <div className="flex items-center justify-center space-x-2">
+              <SkeletonCircle size="w-4 h-4" />
+              <Skeleton width="w-40 sm:w-48" height="h-4" shape="text" />
+            </div>
+            <Skeleton width="w-20 sm:w-24" height="h-1" shape="text" className="mx-auto mt-2" />
+          </div>
+          <Skeleton width="w-48 sm:w-56" height="h-8 sm:h-10" shape="text" className="mx-auto mb-3 sm:mb-4" />
+          <Skeleton width="w-full max-w-2xl" height="h-5" shape="text" className="mx-auto" />
+        </div>
+
+        {/* Professional Highlights - 3 Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div
+              key={index}
+              className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-black/10 dark:border-white/10"
+            >
+              <div className="p-2 sm:p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                <SkeletonCircle size="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <div className="flex-1 space-y-1">
+                <Skeleton width="w-28 sm:w-32" height="h-4" shape="text" />
+                <Skeleton width="w-32 sm:w-36" height="h-3" shape="text" />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Services Grid - 6 Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div
+              key={index}
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 border border-black/10 dark:border-white/10"
+            >
+              <div className="space-y-3 sm:space-y-4">
+                {/* Large Icon Circle */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+                  <SkeletonCircle size="w-8 h-8 sm:w-10 sm:h-10" />
+                </div>
+
+                {/* Title */}
+                <Skeleton width="w-3/4" height="h-5 sm:h-6" shape="text" className="mx-auto" />
+
+                {/* Description - 2 Lines */}
+                <div className="space-y-2">
+                  <Skeleton width="w-full" height="h-4" shape="text" />
+                  <Skeleton width="w-5/6" height="h-4" shape="text" />
+                </div>
+
+                {/* Feature List - 3 Items */}
+                <div className="space-y-2">
+                  {Array.from({ length: 3 }).map((_, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center space-x-2">
+                      <SkeletonCircle size="w-4 h-4" />
+                      <Skeleton width="w-full" height="h-4" shape="text" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="text-center">
+          <Skeleton width="w-40 sm:w-48" height="h-10 sm:h-11" shape="rectangle" className="mx-auto rounded-lg" />
+        </div>
+      </div>
+    </section>
+  );
+}

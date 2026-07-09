@@ -2,18 +2,385 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: black;
-      color: #fff; /* Ensure text is readable on the dark background */
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-  
-  df-messenger {
-      --df-messenger-bot-message: #d3e7f0;  
-      --df-messenger-user-message: #5bc5f7;
-      --df-messenger-font-color: #000000; 
-      --df-messenger-button-titlebar-color: #14a17254;
-    --df-messenger-chat-background-color: #ffffff; 
-    --df-messenger-input-box-color: #ebdbdb;     
-    --df-messenger-input-box-border-color: #140808;
-    --df-messenger-send-icon: #196ac2;      
+
+  body {
+    @apply antialiased font-sans;
+    background-color: white;
+    color: #000000;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
+
+  /* Mobile-optimized typography for better readability */
+  @media (max-width: 640px) {
+    /* Use sans-serif for headlines on mobile for better readability */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* Increase line height for mobile readability */
+    p, span, div {
+      line-height: 1.6;
+    }
+  }
+
+  /* Serif fonts for larger screens */
+  @media (min-width: 641px) {
+    .font-serif {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+  }
+
+  .dark body {
+    background-color: #000000;
+    color: #f1f5f9;
+  }
+
+  /* Smooth transitions for all elements when theme changes */
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  /* Exclude specific animations from theme transition */
+  *:not(.no-transition) {
+    transition-property: background-color, border-color, color, fill, stroke;
+  }
+
+  /* Accessibility: Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Animation keyframes for form messages */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* RTL Support for Urdu and Arabic */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+
+  [dir="rtl"] body {
+    direction: rtl;
+  }
+
+  /* Flip flex direction for RTL */
+  [dir="rtl"] .flex-row {
+    flex-direction: row-reverse;
+  }
+
+  /* Adjust spacing for RTL */
+  [dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 0.5rem;
+    margin-left: 0;
+  }
+
+  [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 1rem;
+    margin-left: 0;
+  }
+
+  /* Text alignment for RTL */
+  [dir="rtl"] .text-left {
+    text-align: right;
+  }
+
+  [dir="rtl"] .text-right {
+    text-align: left;
+  }
+
+  /* Padding adjustments for RTL */
+  [dir="rtl"] .pl-4 {
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+
+  [dir="rtl"] .pr-4 {
+    padding-right: 0;
+    padding-left: 1rem;
+  }
+
+  /* Border radius adjustments for RTL */
+  [dir="rtl"] .rounded-l {
+    border-radius: 0 0.25rem 0.25rem 0;
+  }
+
+  [dir="rtl"] .rounded-r {
+    border-radius: 0.25rem 0 0 0.25rem;
+  }
+}
+
+/* React Toastify Custom Styling */
+@layer components {
+  /* Light Mode Toast Styling */
+  .Toastify__toast {
+    @apply bg-white text-black border-2 border-black/20 rounded-xl shadow-lg font-sans;
+    padding: 16px 20px;
+    min-height: 64px;
+  }
+
+  .Toastify__toast-body {
+    @apply text-black font-medium;
+    padding: 0;
+  }
+
+  /* Success Toast - Green left border accent */
+  .Toastify__toast--success {
+    @apply border-l-4 border-l-green-500;
+  }
+
+  /* Error Toast - Red left border accent */
+  .Toastify__toast--error {
+    @apply border-l-4 border-l-red-500;
+  }
+
+  /* Progress Bar */
+  .Toastify__progress-bar--success {
+    @apply bg-green-500;
+  }
+
+  .Toastify__progress-bar--error {
+    @apply bg-red-500;
+  }
+
+  /* Close Button */
+  .Toastify__close-button {
+    @apply text-black opacity-70;
+  }
+
+  .Toastify__close-button:hover {
+    @apply opacity-100;
+  }
+
+  /* Dark Mode Toast Styling */
+  .dark .Toastify__toast {
+    @apply bg-gray-900 text-white border-2 border-white/20;
+  }
+
+  .dark .Toastify__toast-body {
+    @apply text-white;
+  }
+
+  .dark .Toastify__close-button {
+    @apply text-white opacity-70;
+  }
+
+  .dark .Toastify__close-button:hover {
+    @apply opacity-100;
+  }
+
+  /* Toast Icon Styling */
+  .Toastify__toast-icon {
+    width: 20px;
+    margin-right: 12px;
+  }
+
+  /* Success Icon - Green */
+  .Toastify__toast--success .Toastify__toast-icon svg {
+    fill: #22c55e;
+  }
+
+  /* Error Icon - Red */
+  .Toastify__toast--error .Toastify__toast-icon svg {
+    fill: #ef4444;
+  }
+
+  /* React Phone Input Custom Styling */
+  /* Container */
+  .phone-input-container {
+    width: 100%;
+  }
+
+  /* Input Field - Light Mode */
+  .phone-input {
+    width: 100% !important;
+    height: 48px !important;
+    padding: 12px 14px 12px 52px !important;
+    font-size: 14px !important;
+    border-radius: 0.75rem !important;
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    background-color: white !important;
+    color: black !important;
+    transition: all 0.2s !important;
+  }
+
+  @media (min-width: 640px) {
+    .phone-input {
+      height: 52px !important;
+      padding: 14px 20px 14px 58px !important;
+      font-size: 16px !important;
+    }
+  }
+
+  .phone-input:focus {
+    border-color: black !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px #e5e7eb !important;
+  }
+
+  /* Input Field - Error State */
+  .phone-input-error {
+    border-color: #ef4444 !important;
+  }
+
+  .phone-input-error:focus {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 2px #fecaca !important;
+  }
+
+  /* Flag Button */
+  .phone-button {
+    background-color: transparent !important;
+    border: none !important;
+    border-right: 2px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 0 8px !important;
+    border-radius: 0.75rem 0 0 0.75rem !important;
+  }
+
+  .phone-button:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  /* Dropdown */
+  .phone-dropdown {
+    background-color: white !important;
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+    margin-top: 4px !important;
+    max-height: 200px !important;
+  }
+
+  .phone-dropdown .country {
+    padding: 8px 12px !important;
+    color: black !important;
+  }
+
+  .phone-dropdown .country:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .phone-dropdown .country.highlight {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Search Input in Dropdown */
+  .phone-search {
+    background-color: white !important;
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 0.5rem !important;
+    padding: 8px 12px !important;
+    margin: 8px !important;
+    color: black !important;
+  }
+
+  .phone-search:focus {
+    border-color: black !important;
+    outline: none !important;
+  }
+
+  /* Dark Mode Styles */
+  .dark .phone-input {
+    background-color: #1f2937 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+  }
+
+  .dark .phone-input:focus {
+    border-color: white !important;
+    box-shadow: 0 0 0 2px #374151 !important;
+  }
+
+  .dark .phone-input-error {
+    border-color: #ef4444 !important;
+  }
+
+  .dark .phone-input-error:focus {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 2px #fecaca !important;
+  }
+
+  .dark .phone-button {
+    border-right-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .dark .phone-button:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .dark .phone-dropdown {
+    background-color: #1f2937 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .dark .phone-dropdown .country {
+    color: white !important;
+  }
+
+  .dark .phone-dropdown .country:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .dark .phone-dropdown .country.highlight {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .dark .phone-search {
+    background-color: #1f2937 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+  }
+
+  .dark .phone-search:focus {
+    border-color: white !important;
+  }
+
+  /* Country name text in dropdown */
+  .dark .phone-dropdown .country .country-name {
+    color: white !important;
+  }
+
+  .dark .phone-dropdown .country .dial-code {
+    color: #9ca3af !important;
+  }
+}
+
+df-messenger {
+  --df-messenger-bot-message: #f5f5f5;
+  --df-messenger-user-message: #000000;
+  --df-messenger-font-color: #000000;
+  --df-messenger-button-titlebar-color: #000000;
+  --df-messenger-chat-background-color: #ffffff;
+  --df-messenger-input-box-color: #f5f5f5;
+  --df-messenger-input-box-border-color: #000000;
+  --df-messenger-send-icon: #000000;
+}

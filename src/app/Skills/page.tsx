@@ -1,9 +1,9 @@
 "use client";
-import 'aos/dist/aos.css'; // Import AOS styles
-import { useEffect } from 'react';
-import AOS from 'aos';
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaShopify, FaSearch, FaShareAlt, FaCode } from 'react-icons/fa';
-import { SiTailwindcss, SiTypescript, SiNextdotjs, SiCanva, SiFigma, SiOpenai } from 'react-icons/si';
+import 'aos/dist/aos.css';
+import { useEffect, useState } from 'react';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaShopify, FaSearch, FaShareAlt, FaCode, FaChevronDown, FaPalette, FaRobot } from 'react-icons/fa';
+import { SiTailwindcss, SiTypescript, SiNextdotjs, SiFigma } from 'react-icons/si';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 interface SkillCardProps {
   title: string;
@@ -13,7 +13,6 @@ interface SkillCardProps {
   dataAos?: string;
   dataAosDelay?: string;
   level?: string;
-  category?: string;
 }
 
 function SkillCard({
@@ -24,7 +23,6 @@ function SkillCard({
   dataAos,
   dataAosDelay,
   level,
-  category
 }: SkillCardProps) {
   const getLevelColor = (level: string) => {
     switch (level?.toLowerCase()) {
@@ -56,29 +54,188 @@ function SkillCard({
               </div>
             </div>
           )}
-          {category && (
-            <div className="mt-2 text-[10px] sm:text-xs text-slate-500 font-medium">
-              {category}
-            </div>
-          )}
         </div>
       </div>
     </div>
   );
 }
 
+const skillsData = {
+  Frontend: [
+    {
+      title: "HTML",
+      description: "Proficient in semantic HTML5 markup and modern web standards.",
+      colorClass: "bg-orange-500",
+      svgIcon: <FaHtml5 size={32} className="sm:text-4xl text-white" />,
+      level: "Advanced"
+    },
+    {
+      title: "CSS",
+      description: "Expert in responsive design and modern CSS techniques.",
+      colorClass: "bg-blue-500",
+      svgIcon: <FaCss3Alt size={32} className="sm:text-4xl text-white" />,
+      level: "Advanced"
+    },
+    {
+      title: "Tailwind CSS",
+      description: "Skilled in utility-first CSS framework for rapid development.",
+      colorClass: "bg-cyan-500",
+      svgIcon: <SiTailwindcss size={32} className="sm:text-4xl text-white" />,
+      level: "Expert"
+    },
+    {
+      title: "JavaScript",
+      description: "Strong foundation in modern JavaScript and ES6+ features.",
+      colorClass: "bg-yellow-500",
+      svgIcon: <FaJsSquare size={32} className="sm:text-4xl text-white" />,
+      level: "Advanced"
+    },
+    {
+      title: "React.js",
+      description: "Proficient in building interactive user interfaces.",
+      colorClass: "bg-cyan-600",
+      svgIcon: <FaReact size={32} className="sm:text-4xl text-white" />,
+      level: "Advanced"
+    }
+  ],
+  Backend: [
+    {
+      title: "TypeScript",
+      description: "Experience with type-safe JavaScript development.",
+      colorClass: "bg-blue-600",
+      svgIcon: <SiTypescript size={32} className="sm:text-4xl text-white" />,
+      level: "Intermediate"
+    },
+    {
+      title: "Next.js",
+      description: "Experience with server-side rendering and static generation.",
+      colorClass: "bg-slate-800",
+      svgIcon: <SiNextdotjs size={32} className="sm:text-4xl text-white" />,
+      level: "Intermediate"
+    },
+    {
+      title: "Node.js",
+      description: "Skilled in server-side JavaScript development.",
+      colorClass: "bg-green-600",
+      svgIcon: <FaNodeJs size={32} className="sm:text-4xl text-white" />,
+      level: "Intermediate"
+    }
+  ],
+  Design: [
+    {
+      title: "Canva",
+      description: "Expert in creating professional graphics and visual content.",
+      colorClass: "bg-blue-400",
+      svgIcon: <FaPalette size={32} className="sm:text-4xl text-white" />,
+      level: "Expert"
+    },
+    {
+      title: "Figma",
+      description: "Proficient in UI/UX design and prototyping.",
+      colorClass: "bg-purple-500",
+      svgIcon: <SiFigma size={32} className="sm:text-4xl text-white" />,
+      level: "Intermediate"
+    }
+  ],
+  Tools: [
+    {
+      title: "AI Tools",
+      description: "Experience with AI-powered development and content generation.",
+      colorClass: "bg-indigo-600",
+      svgIcon: <FaRobot size={32} className="sm:text-4xl text-white" />,
+      level: "Advanced"
+    },
+    {
+      title: "Shopify",
+      description: "Skilled in e-commerce development and store management.",
+      colorClass: "bg-green-500",
+      svgIcon: <FaShopify size={32} className="sm:text-4xl text-white" />,
+      level: "Intermediate"
+    }
+  ],
+  "Version Control": [
+    {
+      title: "Git",
+      description: "Proficient in version control and collaborative development.",
+      colorClass: "bg-orange-600",
+      svgIcon: <FaGitAlt size={32} className="sm:text-4xl text-white" />,
+      level: "Advanced"
+    },
+    {
+      title: "GitHub",
+      description: "Experience with repository management and collaboration.",
+      colorClass: "bg-slate-700",
+      svgIcon: <FaGithub size={32} className="sm:text-4xl text-white" />,
+      level: "Advanced"
+    }
+  ],
+  Marketing: [
+    {
+      title: "SEO",
+      description: "Knowledge of search engine optimization and web analytics.",
+      colorClass: "bg-teal-600",
+      svgIcon: <FaSearch size={32} className="sm:text-4xl text-white" />,
+      level: "Intermediate"
+    },
+    {
+      title: "Social Media Marketing",
+      description: "Experience in social media strategy and content management.",
+      colorClass: "bg-pink-500",
+      svgIcon: <FaShareAlt size={32} className="sm:text-4xl text-white" />,
+      level: "Advanced"
+    }
+  ]
+};
+
 export default function Skills() {
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
+    Frontend: true,
+    Backend: true,
+    Design: false,
+    Tools: false,
+    "Version Control": false,
+    Marketing: false
+  });
+
   useEffect(() => {
-    AOS.init({ 
-      duration: 800,
-      once: true,
-      offset: 100,
-      easing: 'ease-out-cubic'
-    });
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      // Dynamic import AOS only when needed (code-splitting benefit)
+      import('aos').then((AOS) => {
+        AOS.init({
+          duration: 500,
+          once: true,
+          offset: 100,
+          easing: 'ease-out-cubic'
+        });
+      });
+    }
   }, []);
 
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [category]: !prev[category]
+    }));
+  };
+
+  const toggleAllCategories = () => {
+    const allExpanded = Object.values(expandedCategories).every(v => v);
+    const newState = Object.keys(expandedCategories).reduce((acc, key) => {
+      acc[key] = !allExpanded;
+      return acc;
+    }, {} as Record<string, boolean>);
+    setExpandedCategories(newState);
+  };
+
+  const allExpanded = Object.values(expandedCategories).every(v => v);
+
   return (
-    <section className="bg-gradient-to-b from-white to-slate-50 py-12 sm:py-16 md:py-20">
+    <>
+      <Breadcrumbs />
+      <section className="bg-gradient-to-b from-white to-slate-50 py-12 sm:py-16 md:py-20">
       <div className="container px-4 sm:px-6 mx-auto max-w-7xl">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16">
@@ -93,176 +250,67 @@ export default function Skills() {
             Technical Expertise
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-            A comprehensive showcase of my technical skills and professional capabilities, demonstrating expertise across various domains of web development and design.
+            A comprehensive showcase of technical skills organized by domain and expertise level.
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          <SkillCard
-            title="HTML"
-            description="Proficient in semantic HTML5 markup and modern web standards."
-            colorClass="bg-orange-500"
-            svgIcon={<FaHtml5 size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            level="Advanced"
-            category="Frontend"
-          />
-          <SkillCard
-            title="CSS"
-            description="Expert in responsive design and modern CSS techniques."
-            colorClass="bg-blue-500"
-            svgIcon={<FaCss3Alt size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="100"
-            level="Advanced"
-            category="Frontend"
-          />
-          <SkillCard
-            title="Tailwind CSS"
-            description="Skilled in utility-first CSS framework for rapid development."
-            colorClass="bg-cyan-500"
-            svgIcon={<SiTailwindcss size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="200"
-            level="Expert"
-            category="Frontend"
-          />
-          <SkillCard
-            title="JavaScript"
-            description="Strong foundation in modern JavaScript and ES6+ features."
-            colorClass="bg-yellow-500"
-            svgIcon={<FaJsSquare size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="300"
-            level="Advanced"
-            category="Frontend"
-          />
+        {/* Toggle All Button */}
+        <div className="text-center mb-8 sm:mb-12">
+          <button
+            onClick={toggleAllCategories}
+            className="inline-flex items-center px-6 py-2.5 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl text-sm font-medium"
+          >
+            {allExpanded ? 'Collapse All' : 'Expand All'}
+            <FaChevronDown className={`ml-2 transition-transform duration-300 ${allExpanded ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
 
-          <SkillCard
-            title="TypeScript"
-            description="Experience with type-safe JavaScript development."
-            colorClass="bg-blue-600"
-            svgIcon={<SiTypescript size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="400"
-            level="Intermediate"
-            category="Backend"
-          />
-          <SkillCard
-            title="React.js"
-            description="Proficient in building interactive user interfaces."
-            colorClass="bg-cyan-600"
-            svgIcon={<FaReact size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="500"
-            level="Advanced"
-            category="Frontend"
-          />
-          <SkillCard
-            title="Next.js"
-            description="Experience with server-side rendering and static generation."
-            colorClass="bg-slate-800"
-            svgIcon={<SiNextdotjs size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="600"
-            level="Intermediate"
-            category="Backend"
-          />
-          <SkillCard
-            title="Node.js"
-            description="Skilled in server-side JavaScript development."
-            colorClass="bg-green-600"
-            svgIcon={<FaNodeJs size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="700"
-            level="Intermediate"
-            category="Backend"
-          />
+        {/* Categorized Skills */}
+        <div className="space-y-6 sm:space-y-8">
+          {Object.entries(skillsData).map(([category, skills]) => (
+            <div key={category} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+              {/* Category Header */}
+              <button
+                onClick={() => toggleCategory(category)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors duration-300"
+              >
+                <div className="flex items-center space-x-3">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-slate-800">{category}</h2>
+                  <span className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-medium">
+                    {skills.length} skills
+                  </span>
+                </div>
+                <FaChevronDown
+                  className={`text-slate-600 transition-transform duration-300 ${expandedCategories[category] ? 'rotate-180' : ''}`}
+                />
+              </button>
 
-          <SkillCard
-            title="Canva"
-            description="Expert in creating professional graphics and visual content."
-            colorClass="bg-blue-400"
-            svgIcon={<SiCanva size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="800"
-            level="Expert"
-            category="Design"
-          />
-          <SkillCard
-            title="Figma"
-            description="Proficient in UI/UX design and prototyping."
-            colorClass="bg-purple-500"
-            svgIcon={<SiFigma size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="900"
-            level="Intermediate"
-            category="Design"
-          />
-          <SkillCard
-            title="AI Tools"
-            description="Experience with AI-powered development and content generation."
-            colorClass="bg-indigo-600"
-            svgIcon={<SiOpenai size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="1000"
-            level="Advanced"
-            category="Tools"
-          />
-          <SkillCard
-            title="Shopify"
-            description="Skilled in e-commerce development and store management."
-            colorClass="bg-green-500"
-            svgIcon={<FaShopify size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="1100"
-            level="Intermediate"
-            category="Tools"
-          />
-
-          <SkillCard
-            title="Git"
-            description="Proficient in version control and collaborative development."
-            colorClass="bg-orange-600"
-            svgIcon={<FaGitAlt size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="1200"
-            level="Advanced"
-            category="Version Control"
-          />
-          <SkillCard
-            title="GitHub"
-            description="Experience with repository management and collaboration."
-            colorClass="bg-slate-700"
-            svgIcon={<FaGithub size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="1300"
-            level="Advanced"
-            category="Version Control"
-          />
-          <SkillCard
-            title="SEO"
-            description="Knowledge of search engine optimization and web analytics."
-            colorClass="bg-teal-600"
-            svgIcon={<FaSearch size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="1400"
-            level="Intermediate"
-            category="Marketing"
-          />
-          <SkillCard
-            title="Social Media Marketing"
-            description="Experience in social media strategy and content management."
-            colorClass="bg-pink-500"
-            svgIcon={<FaShareAlt size={32} className="sm:text-4xl text-white" />}
-            dataAos="fade-up"
-            dataAosDelay="1500"
-            level="Advanced"
-            category="Marketing"
-          />
+              {/* Skills Grid */}
+              <div
+                className={`transition-all duration-500 ease-in-out ${
+                  expandedCategories[category]
+                    ? 'max-h-[2000px] opacity-100'
+                    : 'max-h-0 opacity-0 overflow-hidden'
+                }`}
+              >
+                <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                  {skills.map((skill, index) => (
+                    <SkillCard
+                      key={skill.title}
+                      {...skill}
+                      dataAos="fade-up"
+                      dataAosDelay={`${(index % 4) * 50}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
+    </>
   );
 }
+
+

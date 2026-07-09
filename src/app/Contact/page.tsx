@@ -1,11 +1,17 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaSpinner, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formMessage, setFormMessage] = useState('');
+  const emailAddress = "khanzadiwazirali9@gmail.com";
+
   const notify = () =>
     toast.success("Message sent successfully!", {
       position: "top-right",
@@ -16,10 +22,63 @@ export default function Contact() {
       draggable: true,
     });
 
+  const showErrorWithFallback = () => {
+    toast.error(
+      <div>
+        <p>Failed to send message through the form.</p>
+        <a
+          href={`mailto:${emailAddress}`}
+          className="text-sky-500 hover:text-sky-600 underline font-medium mt-2 inline-block"
+        >
+          Click here to email directly
+        </a>
+      </div>,
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      }
+    );
+  };
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    // Client-side validation
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", "dbda848b-a2a9-4954-88c7-5e5362feae49");
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    if (!name || name.trim().length < 2) {
+      toast.error("Please enter a valid name (at least 2 characters)");
+      return;
+    }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    if (!message || message.trim().length < 10) {
+      toast.error("Please enter a message (at least 10 characters)");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Get API key from environment variable
+    const apiKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    if (!apiKey) {
+      toast.error("Configuration error. Please contact the site administrator.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    formData.append("access_key", apiKey);
 
     const object = Object.fromEntries(formData.entries());
     const json = JSON.stringify(object);
@@ -34,20 +93,41 @@ export default function Contact() {
         body: json,
       });
 
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
       const result = await response.json();
       if (result.success) {
         notify();
+        setFormStatus('success');
+        setFormMessage('Message sent successfully! I\'ll get back to you soon.');
         event.currentTarget.reset();
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus('idle');
+          setFormMessage('');
+        }, 5000);
       } else {
-        toast.error("Failed to send message. Please try again.");
+        showErrorWithFallback();
+        setFormStatus('error');
+        setFormMessage('Failed to send message. Please try the email link below or try again later.');
       }
-    } catch {
-      toast.error("Failed to send message. Please try again.");
+    } catch (error) {
+      console.error("Form submission error:", error);
+      showErrorWithFallback();
+      setFormStatus('error');
+      setFormMessage('Network error occurred. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
   return (
-    <section className="bg-gradient-to-b from-white to-slate-50 py-8 sm:py-12 md:py-16 lg:py-24">
+    <>
+      <Breadcrumbs />
+      <section className="bg-gradient-to-b from-white to-slate-50 py-8 sm:py-12 md:py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
@@ -68,8 +148,35 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Form */}
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8" data-aos="fade-right">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 mb-3 sm:mb-4 md:mb-6">Send a Message</h2>
+          <div className="bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 border border-black/10 dark:border-white/10" data-aos="fade-right">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4 md:mb-6">Send a Message</h2>
+
+            {/* Inline Success Message */}
+            {formStatus === 'success' && (
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 rounded-lg animate-slide-down">
+                <div className="flex items-start space-x-3">
+                  <FaCheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-green-800 dark:text-green-200 mb-1">Success!</h3>
+                    <p className="text-xs sm:text-sm text-green-700 dark:text-green-300">{formMessage}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Inline Error Message */}
+            {formStatus === 'error' && (
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded-lg animate-slide-down">
+                <div className="flex items-start space-x-3">
+                  <FaExclamationCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-red-800 dark:text-red-200 mb-1">Error</h3>
+                    <p className="text-xs sm:text-sm text-red-700 dark:text-red-300">{formMessage}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-6">
               <div className="space-y-1.5 sm:space-y-2">
                 <label htmlFor="name" className="text-xs sm:text-sm font-medium text-slate-700">Name</label>
@@ -78,7 +185,7 @@ export default function Contact() {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 transition-colors duration-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-gray-800 text-black dark:text-white focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-200 dark:focus:ring-sky-900 transition-colors duration-200"
                   placeholder="Your name"
                 />
               </div>
@@ -89,7 +196,7 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 transition-colors duration-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-gray-800 text-black dark:text-white focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-200 dark:focus:ring-sky-900 transition-colors duration-200"
                   placeholder="Your email"
                 />
               </div>
@@ -100,15 +207,27 @@ export default function Contact() {
                   name="message"
                   required
                   rows={4}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 transition-colors duration-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-gray-800 text-black dark:text-white focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-200 dark:focus:ring-sky-900 transition-colors duration-200"
                   placeholder="Your message"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-sky-500 to-sky-600 text-white py-2 sm:py-2.5 md:py-3 rounded-lg text-sm sm:text-base font-medium hover:from-sky-600 hover:to-sky-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                disabled={isSubmitting}
+                className={`w-full bg-gradient-to-r from-sky-500 to-sky-600 text-white py-2 sm:py-2.5 md:py-3 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center ${
+                  isSubmitting
+                    ? 'opacity-70 cursor-not-allowed'
+                    : 'hover:from-sky-600 hover:to-sky-700'
+                }`}
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <FaSpinner className="animate-spin mr-2" />
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>
@@ -190,5 +309,8 @@ export default function Contact() {
       </div>
       <ToastContainer />
     </section>
+    </>
   );
 }
+
+

@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import me from "../my.jpg";
 import { FaGraduationCap, FaCode, FaLightbulb, FaAward, FaCheckCircle, FaStar, FaRegClock } from 'react-icons/fa';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const About = () => {
   return (
-    <section className="text-slate-700 body-font bg-gradient-to-b from-white to-slate-50 py-10 sm:py-16 md:py-20">
+    <>
+      <Breadcrumbs />
+      <section className="text-slate-700 body-font bg-gradient-to-b from-white to-slate-50 py-10 sm:py-16 md:py-20">
       <div className="container mx-auto px-4 sm:px-5">
         <div className="max-w-5xl mx-auto">
           {/* Header Section */}
@@ -33,12 +35,14 @@ const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative">
                 <Image
-                  src={me}
+                  src="/About.jpg"
                   alt="Professional portrait"
                   height={280}
                   width={280}
                   className="rounded-full shadow-xl transition-all duration-500 ease-in-out hover:shadow-2xl w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] object-cover"
                   priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
               </div>
             </div>
@@ -83,7 +87,7 @@ const About = () => {
 
           {/* Key Areas Section */}
           <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-16 sm:mb-20 px-4 sm:px-0">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="1000">
+            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="500">
               <div className="flex items-center mb-4 sm:mb-6">
                 <div className="p-3 bg-slate-100 rounded-lg mr-4">
                   <FaCode className="text-slate-700 text-xl" />
@@ -95,7 +99,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
               <div className="flex items-center mb-4 sm:mb-6">
                 <div className="p-3 bg-slate-100 rounded-lg mr-4">
                   <FaGraduationCap className="text-slate-700 text-xl" />
@@ -109,7 +113,7 @@ const About = () => {
           </div>
 
           {/* Goals Section */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-all duration-300 px-4 sm:px-0" data-aos="fade-up" data-aos-duration="1000">
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-all duration-300 px-4 sm:px-0" data-aos="fade-up" data-aos-duration="500">
             <div className="flex items-center mb-4 sm:mb-6">
               <div className="p-3 bg-slate-100 rounded-lg mr-4">
                 <FaLightbulb className="text-slate-700 text-xl" />
@@ -148,7 +152,10 @@ const About = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
 export default About;
+
+

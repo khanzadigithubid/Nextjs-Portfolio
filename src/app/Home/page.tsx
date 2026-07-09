@@ -2,9 +2,8 @@
 
 import { FaGithub, FaLinkedin, FaArrowRight, FaCode, FaLaptopCode, FaRobot, FaAward, FaRegClock } from 'react-icons/fa';
 import Image from "next/image";
-import me from "../../../About.jpg";
 import Link from "next/link";
-import Chatbot from '../components/Chatbot';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 const Home = () => {
   return (
@@ -31,13 +30,13 @@ const Home = () => {
                   <span className="px-2 sm:px-3 py-1 bg-slate-100 rounded-full text-xs sm:text-sm">ADC PAT 2</span>
                 </div>
               </div>
-              
+
               {/* Professional Description */}
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-base sm:text-lg leading-relaxed text-slate-600 max-w-2xl px-4 sm:px-0"
-                   data-aos="fade-up" 
+                   data-aos="fade-up"
                    data-aos-easing="ease-out-cubic"
-                   data-aos-duration="1500">
+                   data-aos-duration="500">
                   I am a web developer and ADC PAT 2 student focused on technology through cloud-applied generative AI engineering. My journey is about mastering the latest AI tools to enhance web development and drive business innovation.
                 </p>
                 <div className="flex items-center space-x-3 sm:space-x-4 text-xs sm:text-sm text-slate-500">
@@ -82,11 +81,11 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Professional CTA Section */}
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-3 sm:space-y-0 sm:space-x-4 sm:space-x-6">
-                  <Link 
+                  <Link
                     href="/Contact"
                     className="group inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
                   >
@@ -97,7 +96,7 @@ const Home = () => {
 
                 {/* Social Links */}
                 <div className="flex justify-center md:justify-start space-x-4 sm:space-x-6 pt-3 sm:pt-4">
-                  <Link 
+                  <Link
                     href="https://github.com/khanzadigithubid/"
                     className="group"
                     aria-label="GitHub Profile"
@@ -106,7 +105,7 @@ const Home = () => {
                       <FaGithub size={20} className="sm:size-24 group-hover:scale-110 transition-transform duration-300" />
                     </button>
                   </Link>
-                  <Link 
+                  <Link
                     href="https://www.linkedin.com/in/khanzadi-wazir-ali-7a97832b6/"
                     className="group"
                     aria-label="LinkedIn Profile"
@@ -119,27 +118,30 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Profile Image Section */}
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-4/5 sm:w-5/6" data-aos="fade-left" data-aos-duration="1500">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-4/5 sm:w-5/6" data-aos="fade-left" data-aos-duration="500">
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-400 to-slate-600 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative">
-                <Image 
-                  src={me} 
-                  alt="Professional portrait" 
+                <Image
+                  src="/About.jpg"
+                  alt="Professional portrait"
+                  width={600}
+                  height={600}
                   className="rounded-2xl shadow-xl transition-all duration-500 ease-in-out hover:shadow-2xl w-full h-auto"
                   priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Chatbot />
+      <TestimonialsSection />
     </>
   );
 }
 
 export default Home;
-

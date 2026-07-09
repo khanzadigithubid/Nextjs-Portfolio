@@ -1,23 +1,33 @@
 "use client";
 
 import { useEffect } from 'react';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaCode, FaPaintBrush, FaMobileAlt, FaCheckCircle, FaArrowRight, FaShoppingCart, FaBullhorn, FaPalette, FaStar, FaAward, FaRegLightbulb, FaRocket } from 'react-icons/fa';
 import Link from "next/link";
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Services() {
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-      easing: 'ease-out-cubic'
-    });
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      // Dynamic import AOS only when needed (code-splitting benefit)
+      import('aos').then((AOS) => {
+        AOS.init({
+          duration: 500,
+          once: true,
+          offset: 100,
+          easing: 'ease-out-cubic'
+        });
+      });
+    }
   }, []);
 
   return (
-    <section className="text-slate-700 body-font py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-slate-50">
+    <>
+      <Breadcrumbs />
+      <section className="text-slate-700 body-font py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-4 sm:px-5">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
@@ -70,7 +80,7 @@ export default function Services() {
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {/* Web Development Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-blue-200" data-aos="fade-up" data-aos-duration="1000">
+          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-blue-200" data-aos="fade-up" data-aos-duration="500">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaCode size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -99,7 +109,7 @@ export default function Services() {
           </div>
 
           {/* Web Design Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-pink-200" data-aos="fade-up" data-aos-duration="1200">
+          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-pink-200" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-pink-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaPaintBrush size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -128,7 +138,7 @@ export default function Services() {
           </div>
 
           {/* Responsive Web Design Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-teal-200" data-aos="fade-up" data-aos-duration="1400">
+          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-teal-200" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-teal-400 to-teal-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaMobileAlt size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -157,7 +167,7 @@ export default function Services() {
           </div>
 
           {/* Shopify Development Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-green-200" data-aos="fade-up" data-aos-duration="1600">
+          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-green-200" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaShoppingCart size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -186,7 +196,7 @@ export default function Services() {
           </div>
 
           {/* Digital Marketing Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-purple-200" data-aos="fade-up" data-aos-duration="1800">
+          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-purple-200" data-aos="fade-up" data-aos-duration="500">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-purple-400 to-purple-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaBullhorn size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -215,7 +225,7 @@ export default function Services() {
           </div>
 
           {/* Canva Design Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-blue-200" data-aos="fade-up" data-aos-duration="2000">
+          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-blue-200" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaPalette size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -255,5 +265,8 @@ export default function Services() {
         </div>
       </div>
     </section>
+    </>
   );
 }
+
+
