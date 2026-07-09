@@ -2,31 +2,10 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { useTheme } from '../context/ThemeContext';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // Add error handling for theme hook
-  let theme = 'light';
-  let toggleTheme = () => console.log('Theme toggle not initialized');
-
-  try {
-    const themeContext = useTheme();
-    theme = themeContext.theme;
-    toggleTheme = themeContext.toggleTheme;
-  } catch (error) {
-    console.error('Theme context error:', error);
-  }
-
-  // Test handler
-  const handleThemeToggle = () => {
-    console.log('Button clicked!'); // Direct click test
-    console.log('Current theme:', theme);
-    toggleTheme();
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,22 +63,6 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Theme Toggle - Desktop */}
-          <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={handleThemeToggle}
-              type="button"
-              className="flex items-center justify-center w-10 h-10 rounded-lg bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? (
-                <FaMoon className="w-5 h-5 text-black dark:text-white" />
-              ) : (
-                <FaSun className="w-5 h-5 text-black dark:text-white" />
-              )}
-            </button>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             className="md:hidden absolute right-6 p-3 text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 focus:outline-none rounded-xl"
@@ -154,34 +117,6 @@ export default function Header() {
                 </span>
               </Link>
             ))}
-
-            {/* Theme Toggle - Mobile */}
-            <div
-              className="flex items-center gap-4 mt-4"
-              style={{
-                transitionDelay: isMobileMenuOpen ? `${navItems.length * 60}ms` : '0ms',
-                opacity: isMobileMenuOpen ? 1 : 0,
-                transform: isMobileMenuOpen ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.9)'
-              }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  console.log('Mobile button clicked!');
-                  handleThemeToggle();
-                }}
-                type="button"
-                className="flex items-center justify-center w-14 h-14 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300"
-                aria-label="Toggle theme"
-              >
-                {theme === 'light' ? (
-                  <FaMoon className="w-6 h-6 text-black dark:text-white" />
-                ) : (
-                  <FaSun className="w-6 h-6 text-black dark:text-white" />
-                )}
-              </button>
-            </div>
           </nav>
         </div>
       </div>
