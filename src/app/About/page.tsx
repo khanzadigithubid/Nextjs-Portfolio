@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FaGraduationCap, FaCode, FaLightbulb, FaAward, FaCheckCircle, FaStar, FaRegClock } from 'react-icons/fa';
+import { FaGraduationCap, FaCode, FaLightbulb, FaAward, FaCheckCircle, FaStar, FaRegClock, FaDownload } from 'react-icons/fa';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 const About = () => {
@@ -80,6 +80,18 @@ const About = () => {
                   <span className="px-3 sm:px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">Frontend Development</span>
                   <span className="px-3 sm:px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">Next.js</span>
                   <span className="px-3 sm:px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">AI Engineering</span>
+                </div>
+
+                {/* Download Resume Button */}
+                <div className="flex justify-center md:justify-start mt-6">
+                  <a
+                    href="/Khanzadi_Wazir_Ali_Resume.pdf"
+                    download="Khanzadi_Wazir_Ali_Resume.pdf"
+                    className="inline-flex items-center space-x-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-slate-700 to-slate-800 text-white rounded-full text-sm sm:text-base font-medium shadow-lg hover:shadow-xl hover:from-slate-800 hover:to-slate-900 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <FaDownload className="text-base sm:text-lg" />
+                    <span>Download Resume</span>
+                  </a>
                 </div>
               </div>
             </div>
