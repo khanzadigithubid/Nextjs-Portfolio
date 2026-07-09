@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaArrowRight, FaCode, FaLaptopCode, FaRobot, FaAward, FaRegClock, FaDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaArrowRight, FaCode, FaLaptopCode, FaRobot, FaAward, FaRegClock } from 'react-icons/fa';
 import Image from "next/image";
 import Link from "next/link";
 import TestimonialsSection from '../components/TestimonialsSection';
@@ -92,14 +92,6 @@ const Home = () => {
                     <span className="mr-1.5 sm:mr-2">Get in Touch</span>
                     <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
-                  <a
-                    href="/Khanzadi_Wazir_Ali_Resume.pdf"
-                    download="Khanzadi_Wazir_Ali_Resume.pdf"
-                    className="inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-slate-700 to-slate-800 text-white rounded-lg hover:from-slate-800 hover:to-slate-900 transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
-                  >
-                    <FaDownload className="mr-1.5 sm:mr-2" />
-                    <span>Download Resume</span>
-                  </a>
                 </div>
 
                 {/* Social Links */}
