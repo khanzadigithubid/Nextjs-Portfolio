@@ -27,52 +27,52 @@ export default function Services() {
   return (
     <>
       <Breadcrumbs />
-      <section className="text-slate-700 body-font py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-slate-50">
+      <section className="text-gray-300 body-font py-12 sm:py-16 md:py-24 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4 sm:px-5">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <div className="inline-block mb-3 sm:mb-4">
-            <div className="flex items-center justify-center space-x-2 text-slate-600">
-              <FaRocket className="text-slate-500 animate-bounce" />
+            <div className="flex items-center justify-center space-x-2 text-gray-400">
+              <FaRocket className="text-gray-500 animate-bounce" />
               <span className="text-xs sm:text-sm font-medium tracking-wider">PROFESSIONAL SERVICES</span>
             </div>
-            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-slate-300 to-slate-100 mx-auto mt-2"></div>
+            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-800 mx-auto mt-2"></div>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-800 mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3 sm:mb-4">
             Services
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
             Comprehensive web solutions and digital services tailored to elevate your business presence
           </p>
         </div>
 
         {/* Professional Highlights */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100 hover:border-blue-200">
-            <div className="p-2 sm:p-3 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
-              <FaStar className="text-blue-600 text-sm sm:text-base" />
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-700 hover:border-blue-600">
+            <div className="p-2 sm:p-3 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg">
+              <FaStar className="text-blue-400 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-slate-800">Expert Quality</h3>
-              <p className="text-[10px] sm:text-xs text-slate-600">Professional-grade solutions</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">Expert Quality</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">Professional-grade solutions</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100 hover:border-purple-200">
-            <div className="p-2 sm:p-3 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg">
-              <FaAward className="text-purple-600 text-sm sm:text-base" />
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-700 hover:border-purple-600">
+            <div className="p-2 sm:p-3 bg-gradient-to-br from-purple-900 to-purple-800 rounded-lg">
+              <FaAward className="text-purple-400 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-slate-800">Certified Professional</h3>
-              <p className="text-[10px] sm:text-xs text-slate-600">Industry-recognized expertise</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">Certified Professional</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">Industry-recognized expertise</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100 hover:border-green-200">
-            <div className="p-2 sm:p-3 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
-              <FaRegLightbulb className="text-green-600 text-sm sm:text-base" />
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-700 hover:border-green-600">
+            <div className="p-2 sm:p-3 bg-gradient-to-br from-green-900 to-green-800 rounded-lg">
+              <FaRegLightbulb className="text-green-400 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-slate-800">Innovative Solutions</h3>
-              <p className="text-[10px] sm:text-xs text-slate-600">Cutting-edge technology</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">Innovative Solutions</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">Cutting-edge technology</p>
             </div>
           </div>
         </div>
@@ -80,18 +80,18 @@ export default function Services() {
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {/* Web Development Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-blue-200" data-aos="fade-up" data-aos-duration="500">
+          <div className="group bg-gray-800 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-blue-600" data-aos="fade-up" data-aos-duration="500">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaCode size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-slate-800 text-lg sm:text-xl font-semibold text-center">
+              <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
                 Web Development
               </h2>
-              <p className="leading-relaxed text-slate-600 text-sm sm:text-base text-center">
+              <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
                 Expert web development services to bring your ideas to life. From conceptualization to deployment, I craft robust, scalable, and secure web applications that meet your business needs.
               </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-blue-500 flex-shrink-0" />
                   <span>Custom Web Applications</span>
@@ -109,18 +109,18 @@ export default function Services() {
           </div>
 
           {/* Web Design Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-pink-200" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
+          <div className="group bg-gray-800 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-pink-600" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-pink-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaPaintBrush size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-slate-800 text-lg sm:text-xl font-semibold text-center">
+              <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
                 Web Design
               </h2>
-              <p className="leading-relaxed text-slate-600 text-sm sm:text-base text-center">
+              <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
                 Creative web designing solutions to captivate your audience. I design visually stunning, user-friendly, and engaging websites that reflect your brand identity.
               </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-pink-500 flex-shrink-0" />
                   <span>UI/UX Design</span>
@@ -138,18 +138,18 @@ export default function Services() {
           </div>
 
           {/* Responsive Web Design Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-teal-200" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+          <div className="group bg-gray-800 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-teal-600" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-teal-400 to-teal-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaMobileAlt size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-slate-800 text-lg sm:text-xl font-semibold text-center">
+              <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
                 Responsive Web Design
               </h2>
-              <p className="leading-relaxed text-slate-600 text-sm sm:text-base text-center">
+              <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
                 Responsive web design services to ensure seamless user experiences across devices. I craft mobile-friendly, tablet-friendly, and desktop-friendly websites that adapt to any screen size.
               </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-teal-500 flex-shrink-0" />
                   <span>Mobile-First Design</span>
@@ -167,18 +167,18 @@ export default function Services() {
           </div>
 
           {/* Shopify Development Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-green-200" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
+          <div className="group bg-gray-800 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-green-600" data-aos="fade-up" data-aos-duration="500" data-aos-delay="150">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaShoppingCart size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-slate-800 text-lg sm:text-xl font-semibold text-center">
+              <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
                 Shopify Development
               </h2>
-              <p className="leading-relaxed text-slate-600 text-sm sm:text-base text-center">
+              <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
                 Expert Shopify development services to create and optimize your online store. From custom themes to app integration, I help you build a successful e-commerce presence.
               </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-green-500 flex-shrink-0" />
                   <span>Custom Theme Development</span>
@@ -196,18 +196,18 @@ export default function Services() {
           </div>
 
           {/* Digital Marketing Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-purple-200" data-aos="fade-up" data-aos-duration="500">
+          <div className="group bg-gray-800 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-purple-600" data-aos="fade-up" data-aos-duration="500">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-purple-400 to-purple-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaBullhorn size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-slate-800 text-lg sm:text-xl font-semibold text-center">
+              <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
                 Digital Marketing
               </h2>
-              <p className="leading-relaxed text-slate-600 text-sm sm:text-base text-center">
+              <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
                 Comprehensive digital marketing strategies to grow your online presence. From social media management to content creation, I help you reach and engage your target audience.
               </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-purple-500 flex-shrink-0" />
                   <span>Social Media Management</span>
@@ -225,18 +225,18 @@ export default function Services() {
           </div>
 
           {/* Canva Design Card */}
-          <div className="group bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-blue-200" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
+          <div className="group bg-gray-800 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 hover:border-blue-600" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white mb-4 sm:mb-6 flex-shrink-0 shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
               <FaPalette size={24} className="sm:text-3xl transform group-hover:scale-110 transition-transform duration-300" />
             </div>
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="text-slate-800 text-lg sm:text-xl font-semibold text-center">
+              <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
                 Canva Design
               </h2>
-              <p className="leading-relaxed text-slate-600 text-sm sm:text-base text-center">
+              <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
                 Professional Canva design services for your marketing materials. From social media graphics to presentations, I create visually appealing designs that align with your brand.
               </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-blue-500 flex-shrink-0" />
                   <span>Social Media Graphics</span>
@@ -257,7 +257,7 @@ export default function Services() {
         {/* CTA Section */}
         <div className="text-center">
           <Link href="../Contact">
-            <button className="group inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-slate-800 to-slate-600 text-white text-sm sm:text-base rounded-lg hover:from-slate-700 hover:to-slate-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <button className="group inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-white to-gray-200 text-black text-sm sm:text-base rounded-lg hover:from-gray-200 hover:to-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
               Get Started
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </button>

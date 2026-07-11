@@ -37,13 +37,13 @@ export default function BackToTop() {
     >
       <div className="relative">
         {/* Button */}
-        <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110">
+        <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-white hover:bg-gray-200 text-black rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110">
           <FaArrowUp className="w-6 h-6 sm:w-7 sm:h-7" />
         </div>
 
         {/* Tooltip */}
         <div className="absolute bottom-full left-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <div className="bg-black dark:bg-white text-white dark:text-black text-xs sm:text-sm px-3 py-2 rounded-lg whitespace-nowrap shadow-lg">
+          <div className="bg-white text-black text-xs sm:text-sm px-3 py-2 rounded-lg whitespace-nowrap shadow-lg">
             Back to Top
           </div>
         </div>

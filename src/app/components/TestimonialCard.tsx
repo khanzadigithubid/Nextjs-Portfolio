@@ -37,21 +37,21 @@ export default function TestimonialCard({
   };
 
   return (
-    <div className="group relative bg-white dark:bg-gray-900 border border-slate-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:border-slate-300 dark:hover:border-white/20 hover:-translate-y-1">
+    <div className="group relative bg-gray-800 border border-gray-700 rounded-2xl p-6 sm:p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:border-gray-600 hover:-translate-y-1">
       {/* Quote Icon */}
-      <div className="absolute top-6 right-6 sm:top-8 sm:right-8 text-black/10 dark:text-white/10 group-hover:text-black/20 dark:group-hover:text-white/20 transition-colors duration-300">
+      <div className="absolute top-6 right-6 sm:top-8 sm:right-8 text-white/10 group-hover:text-white/20 transition-colors duration-300">
         <FaQuoteLeft className="w-8 h-8 sm:w-10 sm:h-10" />
       </div>
 
       {/* Testimonial Content */}
       <div className="relative z-10 mb-6">
-        <p className="text-base sm:text-lg text-black dark:text-white leading-relaxed italic">
+        <p className="text-base sm:text-lg text-white leading-relaxed italic">
           &ldquo;{displayContent}&rdquo;
         </p>
         {shouldTruncate && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-2 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors duration-200 flex items-center gap-1"
+            className="mt-2 text-sm text-white/60 hover:text-white transition-colors duration-200 flex items-center gap-1"
           >
             {isExpanded ? (
               <>
@@ -69,7 +69,7 @@ export default function TestimonialCard({
       </div>
 
       {/* Divider */}
-      <div className="w-16 h-0.5 bg-black/20 dark:bg-white/20 mb-6 group-hover:w-24 transition-all duration-300" />
+      <div className="w-16 h-0.5 bg-white/20 mb-6 group-hover:w-24 transition-all duration-300" />
 
       {/* Author Info */}
       <div className="flex items-start justify-between gap-4">
@@ -77,7 +77,7 @@ export default function TestimonialCard({
           {/* Avatar */}
           <div className="relative flex-shrink-0">
             {avatarUrl ? (
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-slate-200 dark:border-white/20 overflow-hidden">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-gray-600 overflow-hidden">
                 <Image
                   src={avatarUrl}
                   alt={`${name}'s avatar`}
@@ -87,8 +87,8 @@ export default function TestimonialCard({
                 />
               </div>
             ) : (
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-white/5 flex items-center justify-center flex-shrink-0">
-                <span className="text-base sm:text-lg md:text-xl font-bold text-black dark:text-white">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-gray-600 bg-gray-700 flex items-center justify-center flex-shrink-0">
+                <span className="text-base sm:text-lg md:text-xl font-bold text-white">
                   {getInitials(name)}
                 </span>
               </div>
@@ -97,13 +97,13 @@ export default function TestimonialCard({
 
           {/* Name and Role */}
           <div className="flex-1 min-w-0">
-            <h3 className="text-base sm:text-lg md:text-xl font-bold text-black dark:text-white mb-1 break-words">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-1 break-words">
               {name}
             </h3>
-            <p className="text-xs sm:text-sm md:text-base text-black/70 dark:text-white/70 line-clamp-2 break-words">
+            <p className="text-xs sm:text-sm md:text-base text-white/70 line-clamp-2 break-words">
               {role}
             </p>
-            <p className="text-xs sm:text-sm text-black/50 dark:text-white/50 mt-1">
+            <p className="text-xs sm:text-sm text-white/50 mt-1">
               {new Date(date).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long'
@@ -118,10 +118,10 @@ export default function TestimonialCard({
             href={linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-slate-100 dark:bg-white/5 hover:bg-black dark:hover:bg-white flex items-center justify-center transition-all duration-300 group/linkedin"
+            className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-gray-700 hover:bg-white flex items-center justify-center transition-all duration-300 group/linkedin"
             aria-label={`View ${name}'s LinkedIn profile`}
           >
-            <FaLinkedin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-black dark:text-white group-hover/linkedin:text-white dark:group-hover/linkedin:text-black transition-colors duration-300" />
+            <FaLinkedin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white group-hover/linkedin:text-black transition-colors duration-300" />
           </a>
         )}
       </div>

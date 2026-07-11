@@ -9,8 +9,8 @@
 
   body {
     @apply antialiased font-sans;
-    background-color: white;
-    color: #000000;
+    background-color: #000000;
+    color: #f1f5f9;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
@@ -35,8 +35,8 @@
   }
 
   .dark body {
-    background-color: #000000;
-    color: #f1f5f9;
+    background-color: #ffffff;
+    color: #1e293b;
   }
 
   /* Smooth transitions for all elements when theme changes */

@@ -35,18 +35,18 @@ function SkillCard({
 
   return (
     <div
-      className="group relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100"
+      className="group relative bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-700"
       data-aos={dataAos}
       data-aos-delay={dataAosDelay}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="relative p-4 sm:p-6">
         <div className="flex flex-col items-center">
           <div className={`p-3 sm:p-4 rounded-lg ${colorClass} mb-3 sm:mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
             {svgIcon}
           </div>
-          <h3 className="text-lg sm:text-xl font-semibold text-slate-800 mb-2">{title}</h3>
-          <p className="text-xs sm:text-sm text-slate-600 text-center leading-relaxed mb-2 sm:mb-3">{description}</p>
+          <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">{title}</h3>
+          <p className="text-xs sm:text-sm text-gray-300 text-center leading-relaxed mb-2 sm:mb-3">{description}</p>
           {level && (
             <div className="flex items-center space-x-2 text-xs sm:text-sm">
               <div className={`px-2 py-1 rounded-full ${getLevelColor(level)} text-white text-[10px] sm:text-xs font-medium`}>
@@ -235,21 +235,21 @@ export default function Skills() {
   return (
     <>
       <Breadcrumbs />
-      <section className="bg-gradient-to-b from-white to-slate-50 py-12 sm:py-16 md:py-20">
+      <section className="bg-gradient-to-b from-black to-gray-900 py-12 sm:py-16 md:py-20">
       <div className="container px-4 sm:px-6 mx-auto max-w-7xl">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-block mb-3 sm:mb-4">
-            <div className="flex items-center justify-center space-x-2 text-slate-600">
-              <FaCode className="text-slate-500" />
+            <div className="flex items-center justify-center space-x-2 text-gray-400">
+              <FaCode className="text-gray-500" />
               <span className="text-xs sm:text-sm font-medium tracking-wider">TECHNICAL SKILLS</span>
             </div>
-            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-slate-300 to-slate-100 mx-auto mt-2"></div>
+            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-800 mx-auto mt-2"></div>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-slate-800 mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-3 sm:mb-4">
             Technical Expertise
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
             A comprehensive showcase of technical skills organized by domain and expertise level.
           </p>
         </div>
@@ -258,7 +258,7 @@ export default function Skills() {
         <div className="text-center mb-8 sm:mb-12">
           <button
             onClick={toggleAllCategories}
-            className="inline-flex items-center px-6 py-2.5 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl text-sm font-medium"
+            className="inline-flex items-center px-6 py-2.5 bg-white text-black rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl text-sm font-medium"
           >
             {allExpanded ? 'Collapse All' : 'Expand All'}
             <FaChevronDown className={`ml-2 transition-transform duration-300 ${allExpanded ? 'rotate-180' : ''}`} />
@@ -268,20 +268,20 @@ export default function Skills() {
         {/* Categorized Skills */}
         <div className="space-y-6 sm:space-y-8">
           {Object.entries(skillsData).map(([category, skills]) => (
-            <div key={category} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+            <div key={category} className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700">
               {/* Category Header */}
               <button
                 onClick={() => toggleCategory(category)}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors duration-300"
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-700 transition-colors duration-300"
               >
                 <div className="flex items-center space-x-3">
-                  <h2 className="text-xl sm:text-2xl font-semibold text-slate-800">{category}</h2>
-                  <span className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-medium">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-white">{category}</h2>
+                  <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium">
                     {skills.length} skills
                   </span>
                 </div>
                 <FaChevronDown
-                  className={`text-slate-600 transition-transform duration-300 ${expandedCategories[category] ? 'rotate-180' : ''}`}
+                  className={`text-gray-300 transition-transform duration-300 ${expandedCategories[category] ? 'rotate-180' : ''}`}
                 />
               </button>
 

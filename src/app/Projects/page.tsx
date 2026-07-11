@@ -176,52 +176,52 @@ const Project = () => {
   return (
     <>
       <Breadcrumbs />
-      <section className="text-gray-900 body-font bg-gradient-to-b from-white to-slate-50">
+      <section className="text-gray-100 body-font bg-gradient-to-b from-black to-gray-900">
       <div className="container px-4 sm:px-5 py-12 sm:py-16 md:py-24 mx-auto">
         {/* Header Section */}
         <div className="flex flex-col text-center w-full mb-12 sm:mb-16 md:mb-20">
           <div className="inline-block mb-3 sm:mb-4">
-            <div className="flex items-center justify-center space-x-2 text-slate-600">
-              <FaCode className="text-slate-500" />
+            <div className="flex items-center justify-center space-x-2 text-gray-400">
+              <FaCode className="text-gray-500" />
               <span className="text-sm font-medium">Featured Projects</span>
             </div>
-            <div className="w-20 sm:w-24 h-1 bg-slate-300 mx-auto mt-2"></div>
+            <div className="w-20 sm:w-24 h-1 bg-gray-600 mx-auto mt-2"></div>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-slate-800 mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3 sm:mb-4">
             Projects
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-lg text-slate-600 px-4 sm:px-0">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-lg text-gray-300 px-4 sm:px-0">
             Explore a curated collection of projects showcasing modern web development expertise
           </p>
         </div>
 
         {/* Project Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm">
-            <div className="p-2 sm:p-3 bg-slate-100 rounded-lg">
-              <FaCode className="text-slate-700 text-sm sm:text-base" />
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm">
+            <div className="p-2 sm:p-3 bg-gray-700 rounded-lg">
+              <FaCode className="text-gray-200 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-slate-800">{projects.length} Projects</h3>
-              <p className="text-[10px] sm:text-xs text-slate-600">Completed with excellence</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">{projects.length} Projects</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">Completed with excellence</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm">
-            <div className="p-2 sm:p-3 bg-slate-100 rounded-lg">
-              <FaStar className="text-slate-700 text-sm sm:text-base" />
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm">
+            <div className="p-2 sm:p-3 bg-gray-700 rounded-lg">
+              <FaStar className="text-gray-200 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-slate-800">Quality Code</h3>
-              <p className="text-[10px] sm:text-xs text-slate-600">Clean & maintainable</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">Quality Code</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">Clean & maintainable</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm">
-            <div className="p-2 sm:p-3 bg-slate-100 rounded-lg">
-              <FaRegClock className="text-slate-700 text-sm sm:text-base" />
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm">
+            <div className="p-2 sm:p-3 bg-gray-700 rounded-lg">
+              <FaRegClock className="text-gray-200 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-slate-800">Latest Tech</h3>
-              <p className="text-[10px] sm:text-xs text-slate-600">Modern frameworks & tools</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">Latest Tech</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">Modern frameworks & tools</p>
             </div>
           </div>
         </div>
@@ -237,8 +237,8 @@ const Project = () => {
               }}
               className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? 'bg-slate-800 text-white shadow-lg'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 shadow-sm'
+                  ? 'bg-white text-black shadow-lg'
+                  : 'bg-gray-800 text-gray-200 hover:bg-gray-700 shadow-sm'
               }`}
             >
               {category}
@@ -255,7 +255,7 @@ const Project = () => {
               data-aos="fade-up"
               data-aos-duration={400 + (index % 4) * 50}
             >
-              <div className="flex flex-col h-full bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-black/10 dark:border-white/10">
+              <div className="flex flex-col h-full bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-gray-700">
                 <div
                   className="relative h-[180px] sm:h-[200px] w-full overflow-hidden cursor-pointer group"
                   onClick={() => openLightbox(index)}
@@ -297,18 +297,18 @@ const Project = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 p-4 sm:p-6 bg-white dark:bg-gray-900">
+                <div className="flex-1 p-4 sm:p-6 bg-gray-800">
                   <div className="mb-2">
-                    <span className="inline-block px-2 py-1 text-[10px] sm:text-xs font-medium text-slate-600 bg-slate-100 rounded-full">
+                    <span className="inline-block px-2 py-1 text-[10px] sm:text-xs font-medium text-gray-300 bg-gray-700 rounded-full">
                       {project.category}
                     </span>
                   </div>
                   <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                    <h2 className="text-lg sm:text-xl font-semibold text-slate-800 mb-2 sm:mb-3 hover:text-slate-600 transition-colors duration-300">
+                    <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3 hover:text-gray-300 transition-colors duration-300">
                       {project.title}
                     </h2>
                   </Link>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -322,7 +322,7 @@ const Project = () => {
           <div className="text-center mt-8 sm:mt-12">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-3.5 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base font-medium"
+              className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white text-black rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base font-medium"
             >
               {showAll ? 'Show Less' : `Show More Projects (${filteredProjects.length - 8} more)`}
               <FaChevronDown className={`ml-2 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />

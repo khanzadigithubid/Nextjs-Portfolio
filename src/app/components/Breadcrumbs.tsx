@@ -43,7 +43,7 @@ export default function Breadcrumbs() {
   }
 
   return (
-    <nav className="bg-white dark:bg-black border-b border-black/10 dark:border-white/10 py-3 sm:py-4 transition-colors duration-300">
+    <nav className="bg-black border-b border-white/10 py-3 sm:py-4 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6">
         <ol className="flex items-center space-x-2 text-sm overflow-x-auto scrollbar-hide">
           {breadcrumbs.map((breadcrumb, index) => {
@@ -53,18 +53,18 @@ export default function Breadcrumbs() {
             return (
               <li key={breadcrumb.path} className="flex items-center flex-shrink-0">
                 {index > 0 && (
-                  <FaChevronRight className="w-3 h-3 mx-2 text-gray-400 dark:text-gray-500 flex-shrink-0" />
+                  <FaChevronRight className="w-3 h-3 mx-2 text-gray-500 flex-shrink-0" />
                 )}
 
                 {isLast ? (
-                  <span className="font-semibold text-black dark:text-white flex items-center space-x-1.5">
+                  <span className="font-semibold text-white flex items-center space-x-1.5">
                     {breadcrumb.icon && <span>{breadcrumb.icon}</span>}
                     <span className="truncate max-w-[150px] sm:max-w-none">{breadcrumb.name}</span>
                   </span>
                 ) : (
                   <Link
                     href={breadcrumb.path}
-                    className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-200 flex items-center space-x-1.5"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center space-x-1.5"
                   >
                     {breadcrumb.icon && <span>{breadcrumb.icon}</span>}
                     <span className={isHome ? '' : 'truncate max-w-[100px] sm:max-w-none'}>

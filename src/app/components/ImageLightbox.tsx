@@ -78,7 +78,7 @@ export default function ImageLightbox({
       {/* Close Button */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 z-[110] p-3 bg-white/10 hover:bg-white/20 dark:bg-black/30 dark:hover:bg-black/40 rounded-full transition-all duration-300 group"
+        className="absolute top-4 right-4 z-[110] p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 group"
         aria-label="Close lightbox"
       >
         <FaTimes className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
@@ -92,7 +92,7 @@ export default function ImageLightbox({
               e.stopPropagation();
               onNavigate('prev');
             }}
-            className="absolute left-4 z-[110] p-3 sm:p-4 bg-white/10 hover:bg-white/20 dark:bg-black/30 dark:hover:bg-black/40 rounded-full transition-all duration-300 group"
+            className="absolute left-4 z-[110] p-3 sm:p-4 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 group"
             aria-label="Previous image"
           >
             <FaChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
@@ -103,7 +103,7 @@ export default function ImageLightbox({
               e.stopPropagation();
               onNavigate('next');
             }}
-            className="absolute right-4 z-[110] p-3 sm:p-4 bg-white/10 hover:bg-white/20 dark:bg-black/30 dark:hover:bg-black/40 rounded-full transition-all duration-300 group"
+            className="absolute right-4 z-[110] p-3 sm:p-4 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 group"
             aria-label="Next image"
           >
             <FaChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
@@ -117,7 +117,7 @@ export default function ImageLightbox({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image Container */}
-        <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] bg-slate-900/50 rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] bg-gray-900/50 rounded-2xl overflow-hidden shadow-2xl">
           <Image
             src={currentImage.src}
             alt={currentImage.alt}
@@ -131,19 +131,19 @@ export default function ImageLightbox({
         </div>
 
         {/* Info Section */}
-        <div className="mt-4 sm:mt-6 bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-white/20">
+        <div className="mt-4 sm:mt-6 bg-gray-800/90 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-gray-700">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <div className="flex-1">
               <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
                 {currentImage.title}
               </h3>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                 {currentImage.description}
               </p>
 
               {/* Counter */}
               {images.length > 1 && (
-                <p className="mt-3 text-xs sm:text-sm text-slate-400">
+                <p className="mt-3 text-xs sm:text-sm text-gray-400">
                   {currentIndex + 1} / {images.length}
                 </p>
               )}

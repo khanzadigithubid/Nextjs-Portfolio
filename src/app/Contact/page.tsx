@@ -127,7 +127,7 @@ export default function Contact() {
   return (
     <>
       <Breadcrumbs />
-      <section className="bg-gradient-to-b from-white to-slate-50 py-8 sm:py-12 md:py-16 lg:py-24">
+      <section className="bg-gradient-to-b from-black to-gray-900 py-8 sm:py-12 md:py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
@@ -148,17 +148,17 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 border border-black/10 dark:border-white/10" data-aos="fade-right">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4 md:mb-6">Send a Message</h2>
+          <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 border border-gray-700" data-aos="fade-right">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4 md:mb-6">Send a Message</h2>
 
             {/* Inline Success Message */}
             {formStatus === 'success' && (
-              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 rounded-lg animate-slide-down">
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-900/30 border-l-4 border-green-500 rounded-lg animate-slide-down">
                 <div className="flex items-start space-x-3">
-                  <FaCheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <FaCheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-sm font-semibold text-green-800 dark:text-green-200 mb-1">Success!</h3>
-                    <p className="text-xs sm:text-sm text-green-700 dark:text-green-300">{formMessage}</p>
+                    <h3 className="text-sm font-semibold text-green-300 mb-1">Success!</h3>
+                    <p className="text-xs sm:text-sm text-green-200">{formMessage}</p>
                   </div>
                 </div>
               </div>
@@ -166,12 +166,12 @@ export default function Contact() {
 
             {/* Inline Error Message */}
             {formStatus === 'error' && (
-              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded-lg animate-slide-down">
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-900/30 border-l-4 border-red-500 rounded-lg animate-slide-down">
                 <div className="flex items-start space-x-3">
-                  <FaExclamationCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <FaExclamationCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-sm font-semibold text-red-800 dark:text-red-200 mb-1">Error</h3>
-                    <p className="text-xs sm:text-sm text-red-700 dark:text-red-300">{formMessage}</p>
+                    <h3 className="text-sm font-semibold text-red-300 mb-1">Error</h3>
+                    <p className="text-xs sm:text-sm text-red-200">{formMessage}</p>
                   </div>
                 </div>
               </div>
@@ -179,35 +179,35 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-6">
               <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="name" className="text-xs sm:text-sm font-medium text-slate-700">Name</label>
+                <label htmlFor="name" className="text-xs sm:text-sm font-medium text-gray-300">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
-                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-gray-800 text-black dark:text-white focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-200 dark:focus:ring-sky-900 transition-colors duration-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-gray-600 bg-gray-700 text-white focus:border-sky-500 focus:ring-2 focus:ring-sky-900 transition-colors duration-200"
                   placeholder="Your name"
                 />
               </div>
               <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="email" className="text-xs sm:text-sm font-medium text-slate-700">Email</label>
+                <label htmlFor="email" className="text-xs sm:text-sm font-medium text-gray-300">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
-                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-gray-800 text-black dark:text-white focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-200 dark:focus:ring-sky-900 transition-colors duration-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-gray-600 bg-gray-700 text-white focus:border-sky-500 focus:ring-2 focus:ring-sky-900 transition-colors duration-200"
                   placeholder="Your email"
                 />
               </div>
               <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="message" className="text-xs sm:text-sm font-medium text-slate-700">Message</label>
+                <label htmlFor="message" className="text-xs sm:text-sm font-medium text-gray-300">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   rows={4}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-gray-800 text-black dark:text-white focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-200 dark:focus:ring-sky-900 transition-colors duration-200"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-gray-600 bg-gray-700 text-white focus:border-sky-500 focus:ring-2 focus:ring-sky-900 transition-colors duration-200"
                   placeholder="Your message"
                 />
               </div>
@@ -217,7 +217,7 @@ export default function Contact() {
                 className={`w-full bg-gradient-to-r from-sky-500 to-sky-600 text-white py-2 sm:py-2.5 md:py-3 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center ${
                   isSubmitting
                     ? 'opacity-70 cursor-not-allowed'
-                    : 'hover:from-sky-600 hover:to-sky-700'
+                    : 'hover:from-sky-400 hover:to-sky-500'
                 }`}
               >
                 {isSubmitting ? (
@@ -235,7 +235,7 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-4 sm:space-y-6 md:space-y-8" data-aos="fade-left">
             {/* Map */}
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.790343352196!2d67.0282!3d24.8607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f0a0a0a0a0a%3A0x0!2zMjTCsDUxJzM4LjUiTiA2N8KwMDEnNDEuNSJF!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
                 width="100%"
@@ -248,58 +248,58 @@ export default function Contact() {
             </div>
 
             {/* Contact Details */}
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-800 mb-3 sm:mb-4 md:mb-6">Contact Information</h2>
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4 md:mb-6">Contact Information</h2>
               <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="p-2 sm:p-2.5 md:p-3 bg-sky-100 rounded-lg">
-                    <FaEnvelope className="text-sky-600 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
+                  <div className="p-2 sm:p-2.5 md:p-3 bg-gray-700 rounded-lg">
+                    <FaEnvelope className="text-sky-400 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm font-medium text-slate-600">Email</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-400">Email</p>
                     <a
                       href="mailto:khanzadiwazirali9@gmail.com"
-                      className="text-xs sm:text-sm md:text-base text-slate-800 hover:text-sky-600 transition-colors duration-200"
+                      className="text-xs sm:text-sm md:text-base text-white hover:text-sky-400 transition-colors duration-200"
                     >
                       khanzadiwazirali9@gmail.com
                     </a>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="p-2 sm:p-2.5 md:p-3 bg-sky-100 rounded-lg">
-                    <FaMapMarkerAlt className="text-sky-600 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
+                  <div className="p-2 sm:p-2.5 md:p-3 bg-gray-700 rounded-lg">
+                    <FaMapMarkerAlt className="text-sky-400 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm font-medium text-slate-600">Location</p>
-                    <p className="text-xs sm:text-sm md:text-base text-slate-800">Karachi</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-400">Location</p>
+                    <p className="text-xs sm:text-sm md:text-base text-white">Karachi</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="mt-4 sm:mt-6 md:mt-8 pt-4 sm:pt-6 md:pt-8 border-t border-slate-200">
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-slate-800 mb-2 sm:mb-3 md:mb-4">Connect with Me</h3>
+              <div className="mt-4 sm:mt-6 md:mt-8 pt-4 sm:pt-6 md:pt-8 border-t border-gray-700">
+                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2 sm:mb-3 md:mb-4">Connect with Me</h3>
                 <div className="flex space-x-2 sm:space-x-3 md:space-x-4">
                   <a
                     href="https://www.linkedin.com/in/khanzadi-wazir-ali-7a97832b6/"
-                    className="p-2 sm:p-2.5 md:p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200"
+                    className="p-2 sm:p-2.5 md:p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors duration-200"
                     target="_blank" rel="noopener noreferrer"
                   >
-                    <FaLinkedin className="text-slate-700 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
+                    <FaLinkedin className="text-gray-200 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
                   </a>
                   <a
                     href="https://github.com/khanzadigithubid/"
-                    className="p-2 sm:p-2.5 md:p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200"
+                    className="p-2 sm:p-2.5 md:p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors duration-200"
                     target="_blank" rel="noopener noreferrer"
                   >
-                    <FaGithub className="text-slate-700 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
+                    <FaGithub className="text-gray-200 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
                   </a>
                   <a
                     href="https://x.com/Khanzadi0099"
-                    className="p-2 sm:p-2.5 md:p-3 bg-slate-100 rounded-lg hover:bg-sky-100 transition-colors duration-200"
+                    className="p-2 sm:p-2.5 md:p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors duration-200"
                     target="_blank" rel="noopener noreferrer"
                   >
-                    <FaTwitter className="text-slate-700 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
+                    <FaTwitter className="text-gray-200 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
                   </a>
                 </div>
               </div>

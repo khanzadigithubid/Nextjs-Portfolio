@@ -25,23 +25,23 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-black transition-colors duration-300">
+    <section className="py-12 sm:py-16 md:py-24 bg-black transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <div className="inline-block mb-3 sm:mb-4">
-            <div className="flex items-center justify-center space-x-2 text-black/70 dark:text-white/70">
-              <FaUsers className="text-black/50 dark:text-white/50 animate-pulse" />
+            <div className="flex items-center justify-center space-x-2 text-white/70">
+              <FaUsers className="text-white/50 animate-pulse" />
               <span className="text-xs sm:text-sm font-medium tracking-wider uppercase">
                 Client Testimonials
               </span>
             </div>
-            <div className="w-20 sm:w-24 h-1 bg-black/20 dark:bg-white/20 mx-auto mt-2"></div>
+            <div className="w-20 sm:w-24 h-1 bg-white/20 mx-auto mt-2"></div>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-3 sm:mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
             What Clients Say
           </h2>
-          <p className="text-base sm:text-lg text-black/70 dark:text-white/70 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+          <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
             Hear from the professionals and businesses I&apos;ve had the privilege to work with
           </p>
         </div>
@@ -89,10 +89,10 @@ export default function TestimonialsSection() {
           )
         ) : (
           <div className="text-center py-12 sm:py-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/5 dark:bg-white/5 mb-4">
-              <FaQuoteLeft className="w-6 h-6 sm:w-8 sm:h-8 text-black/30 dark:text-white/30" />
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/5 mb-4">
+              <FaQuoteLeft className="w-6 h-6 sm:w-8 sm:h-8 text-white/30" />
             </div>
-            <p className="text-black/60 dark:text-white/60 text-base sm:text-lg">
+            <p className="text-white/60 text-base sm:text-lg">
               No testimonials available yet.
             </p>
           </div>
