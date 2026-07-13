@@ -5,11 +5,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaSpinner, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 import Breadcrumbs from '../components/Breadcrumbs';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formMessage, setFormMessage] = useState('');
+  const [phone, setPhone] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const emailAddress = "khanzadiwazirali9@gmail.com";
 
   const notify = () =>
@@ -63,6 +67,12 @@ export default function Contact() {
       return;
     }
 
+    if (!phone || phone.length < 10) {
+      setPhoneError("Please enter a valid phone number");
+      toast.error("Please enter a valid phone number");
+      return;
+    }
+
     if (!message || message.trim().length < 10) {
       toast.error("Please enter a message (at least 10 characters)");
       return;
@@ -79,6 +89,7 @@ export default function Contact() {
     }
 
     formData.append("access_key", apiKey);
+    formData.append("phone", phone);
 
     const object = Object.fromEntries(formData.entries());
     const json = JSON.stringify(object);
@@ -103,6 +114,8 @@ export default function Contact() {
         setFormStatus('success');
         setFormMessage('Message sent successfully! I\'ll get back to you soon.');
         event.currentTarget.reset();
+        setPhone('');
+        setPhoneError('');
 
         // Reset success message after 5 seconds
         setTimeout(() => {
@@ -199,6 +212,35 @@ export default function Contact() {
                   className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-gray-600 bg-gray-700 text-white focus:border-sky-500 focus:ring-2 focus:ring-sky-900 transition-colors duration-200"
                   placeholder="Your email"
                 />
+              </div>
+              <div className="space-y-1.5 sm:space-y-2">
+                <label htmlFor="phone" className="text-xs sm:text-sm font-medium text-gray-300">Phone Number</label>
+                <div className="phone-input-container">
+                  <PhoneInput
+                    country={'pk'}
+                    value={phone}
+                    onChange={(value) => {
+                      setPhone(value);
+                      setPhoneError('');
+                    }}
+                    inputProps={{
+                      name: 'phone',
+                      required: true,
+                      id: 'phone'
+                    }}
+                    containerClass="phone-input-wrapper"
+                    inputClass={`phone-input ${phoneError ? 'phone-input-error' : ''}`}
+                    buttonClass="phone-button"
+                    dropdownClass="phone-dropdown"
+                    searchClass="phone-search"
+                    enableSearch={true}
+                    searchPlaceholder="Search country"
+                    placeholder="Enter phone number"
+                  />
+                  {phoneError && (
+                    <p className="mt-1 text-xs text-red-400">{phoneError}</p>
+                  )}
+                </div>
               </div>
               <div className="space-y-1.5 sm:space-y-2">
                 <label htmlFor="message" className="text-xs sm:text-sm font-medium text-gray-300">Message</label>

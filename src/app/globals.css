@@ -214,22 +214,21 @@
     fill: #ef4444;
   }
 
-  /* React Phone Input Custom Styling */
-  /* Container */
+  /* React Phone Input Custom Styling - Dark Theme */
   .phone-input-container {
     width: 100%;
   }
 
-  /* Input Field - Light Mode */
+  /* Input Field - Dark Mode */
   .phone-input {
     width: 100% !important;
     height: 48px !important;
     padding: 12px 14px 12px 52px !important;
     font-size: 14px !important;
     border-radius: 0.75rem !important;
-    border: 2px solid rgba(0, 0, 0, 0.2) !important;
-    background-color: white !important;
-    color: black !important;
+    border: 2px solid #4b5563 !important;
+    background-color: #374151 !important;
+    color: white !important;
     transition: all 0.2s !important;
   }
 
@@ -242,9 +241,9 @@
   }
 
   .phone-input:focus {
-    border-color: black !important;
+    border-color: #0ea5e9 !important;
     outline: none !important;
-    box-shadow: 0 0 0 2px #e5e7eb !important;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2) !important;
   }
 
   /* Input Field - Error State */
@@ -254,122 +253,66 @@
 
   .phone-input-error:focus {
     border-color: #ef4444 !important;
-    box-shadow: 0 0 0 2px #fecaca !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
   }
 
   /* Flag Button */
   .phone-button {
     background-color: transparent !important;
     border: none !important;
-    border-right: 2px solid rgba(0, 0, 0, 0.1) !important;
+    border-right: 2px solid rgba(255, 255, 255, 0.1) !important;
     padding: 0 8px !important;
     border-radius: 0.75rem 0 0 0.75rem !important;
   }
 
   .phone-button:hover {
-    background-color: rgba(0, 0, 0, 0.05) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
   }
 
   /* Dropdown */
   .phone-dropdown {
-    background-color: white !important;
-    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    background-color: #1f2937 !important;
+    border: 2px solid #4b5563 !important;
     border-radius: 0.75rem !important;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
     margin-top: 4px !important;
     max-height: 200px !important;
   }
 
   .phone-dropdown .country {
     padding: 8px 12px !important;
-    color: black !important;
+    color: white !important;
   }
 
   .phone-dropdown .country:hover {
-    background-color: rgba(0, 0, 0, 0.05) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
   }
 
   .phone-dropdown .country.highlight {
-    background-color: rgba(0, 0, 0, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
   }
 
   /* Search Input in Dropdown */
   .phone-search {
-    background-color: white !important;
-    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    background-color: #374151 !important;
+    border: 2px solid #4b5563 !important;
     border-radius: 0.5rem !important;
     padding: 8px 12px !important;
     margin: 8px !important;
-    color: black !important;
+    color: white !important;
   }
 
   .phone-search:focus {
-    border-color: black !important;
+    border-color: #0ea5e9 !important;
     outline: none !important;
   }
 
-  /* Dark Mode Styles */
-  .dark .phone-input {
-    background-color: #1f2937 !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+  /* Country name and dial code text */
+  .phone-dropdown .country .country-name {
     color: white !important;
   }
 
-  .dark .phone-input:focus {
-    border-color: white !important;
-    box-shadow: 0 0 0 2px #374151 !important;
-  }
-
-  .dark .phone-input-error {
-    border-color: #ef4444 !important;
-  }
-
-  .dark .phone-input-error:focus {
-    border-color: #ef4444 !important;
-    box-shadow: 0 0 0 2px #fecaca !important;
-  }
-
-  .dark .phone-button {
-    border-right-color: rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .dark .phone-button:hover {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-  }
-
-  .dark .phone-dropdown {
-    background-color: #1f2937 !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-  }
-
-  .dark .phone-dropdown .country {
-    color: white !important;
-  }
-
-  .dark .phone-dropdown .country:hover {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-  }
-
-  .dark .phone-dropdown .country.highlight {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .dark .phone-search {
-    background-color: #1f2937 !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    color: white !important;
-  }
-
-  .dark .phone-search:focus {
-    border-color: white !important;
-  }
-
-  /* Country name text in dropdown */
-  .dark .phone-dropdown .country .country-name {
-    color: white !important;
-  }
-
-  .dark .phone-dropdown .country .dial-code {
+  .phone-dropdown .country .dial-code {
     color: #9ca3af !important;
   }
 }
