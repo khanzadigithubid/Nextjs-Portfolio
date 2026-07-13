@@ -126,7 +126,7 @@ const projects = [
 ];
 
 const Project = () => {
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [showAll, setShowAll] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -175,6 +175,15 @@ const Project = () => {
       setCurrentImageIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
     }
   };
+
+  // Transform projects array with translations for ImageLightbox
+  const projectsWithTranslations = projects.map(project => ({
+    src: project.src,
+    alt: project.alt,
+    title: getProjectTranslation(project.key, 'title'),
+    description: getProjectTranslation(project.key, 'description'),
+    link: project.link
+  }));
 
   return (
     <>
@@ -338,7 +347,7 @@ const Project = () => {
       <ImageLightbox
         isOpen={lightboxOpen}
         onClose={closeLightbox}
-        images={projects}
+        images={projectsWithTranslations}
         currentIndex={currentImageIndex}
         onNavigate={navigateLightbox}
       />
