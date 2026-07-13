@@ -86,15 +86,19 @@
   /* RTL Support for Urdu and Arabic */
   [dir="rtl"] {
     direction: rtl;
-    text-align: right;
   }
 
   [dir="rtl"] body {
     direction: rtl;
+    text-align: right;
   }
 
   /* Flip flex direction for RTL */
   [dir="rtl"] .flex-row {
+    flex-direction: row-reverse;
+  }
+
+  [dir="rtl"] .flex {
     flex-direction: row-reverse;
   }
 
@@ -106,6 +110,16 @@
 
   [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
     margin-right: 1rem;
+    margin-left: 0;
+  }
+
+  [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 0.75rem;
+    margin-left: 0;
+  }
+
+  [dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 1.5rem;
     margin-left: 0;
   }
 
@@ -129,6 +143,16 @@
     padding-left: 1rem;
   }
 
+  [dir="rtl"] .ml-2 {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+
+  [dir="rtl"] .mr-2 {
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+
   /* Border radius adjustments for RTL */
   [dir="rtl"] .rounded-l {
     border-radius: 0 0.25rem 0.25rem 0;
@@ -136,6 +160,11 @@
 
   [dir="rtl"] .rounded-r {
     border-radius: 0.25rem 0 0 0.25rem;
+  }
+
+  /* Urdu font support */
+  [dir="rtl"] body {
+    font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', 'Arial', sans-serif;
   }
 }
 

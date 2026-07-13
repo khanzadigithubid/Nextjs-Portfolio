@@ -5,14 +5,15 @@ import 'aos/dist/aos.css';
 import { FaCode, FaPaintBrush, FaMobileAlt, FaCheckCircle, FaArrowRight, FaShoppingCart, FaBullhorn, FaPalette, FaStar, FaAward, FaRegLightbulb, FaRocket } from 'react-icons/fa';
 import Link from "next/link";
 import Breadcrumbs from '../components/Breadcrumbs';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Services() {
+  const { t } = useLanguage();
+
   useEffect(() => {
-    // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
-      // Dynamic import AOS only when needed (code-splitting benefit)
       import('aos').then((AOS) => {
         AOS.init({
           duration: 500,
@@ -34,15 +35,15 @@ export default function Services() {
           <div className="inline-block mb-3 sm:mb-4">
             <div className="flex items-center justify-center space-x-2 text-gray-400">
               <FaRocket className="text-gray-500 animate-bounce" />
-              <span className="text-xs sm:text-sm font-medium tracking-wider">PROFESSIONAL SERVICES</span>
+              <span className="text-xs sm:text-sm font-medium tracking-wider">{t('services.professional')}</span>
             </div>
             <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-800 mx-auto mt-2"></div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3 sm:mb-4">
-            Services
+            {t('services.title')}
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-            Comprehensive web solutions and digital services tailored to elevate your business presence
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -53,8 +54,8 @@ export default function Services() {
               <FaStar className="text-blue-400 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">Expert Quality</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">Professional-grade solutions</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">{t('services.quality')}</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">{t('services.qualitySub')}</p>
             </div>
           </div>
           <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-700 hover:border-purple-600">
@@ -62,8 +63,8 @@ export default function Services() {
               <FaAward className="text-purple-400 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">Certified Professional</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">Industry-recognized expertise</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">{t('services.certified')}</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">{t('services.certifiedSub')}</p>
             </div>
           </div>
           <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-700 hover:border-green-600">
@@ -71,8 +72,8 @@ export default function Services() {
               <FaRegLightbulb className="text-green-400 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">Innovative Solutions</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">Cutting-edge technology</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">{t('services.innovative')}</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">{t('services.innovativeSub')}</p>
             </div>
           </div>
         </div>
@@ -86,23 +87,23 @@ export default function Services() {
             </div>
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
-                Web Development
+                {t('services.webDev')}
               </h2>
               <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
-                Expert web development services to bring your ideas to life. From conceptualization to deployment, I craft robust, scalable, and secure web applications that meet your business needs.
+                {t('services.webDevDesc')}
               </p>
               <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-blue-500 flex-shrink-0" />
-                  <span>Custom Web Applications</span>
+                  <span>{t('services.webDevFeature1')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-blue-500 flex-shrink-0" />
-                  <span>E-commerce Solutions</span>
+                  <span>{t('services.webDevFeature2')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-blue-500 flex-shrink-0" />
-                  <span>API Integration</span>
+                  <span>{t('services.webDevFeature3')}</span>
                 </li>
               </ul>
             </div>
@@ -115,23 +116,23 @@ export default function Services() {
             </div>
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
-                Web Design
+                {t('services.webDesign')}
               </h2>
               <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
-                Creative web designing solutions to captivate your audience. I design visually stunning, user-friendly, and engaging websites that reflect your brand identity.
+                {t('services.webDesignDesc')}
               </p>
               <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-pink-500 flex-shrink-0" />
-                  <span>UI/UX Design</span>
+                  <span>{t('services.webDesignFeature1')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-pink-500 flex-shrink-0" />
-                  <span>Brand Identity</span>
+                  <span>{t('services.webDesignFeature2')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-pink-500 flex-shrink-0" />
-                  <span>Visual Design</span>
+                  <span>{t('services.webDesignFeature3')}</span>
                 </li>
               </ul>
             </div>
@@ -144,23 +145,23 @@ export default function Services() {
             </div>
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
-                Responsive Web Design
+                {t('services.responsive')}
               </h2>
               <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
-                Responsive web design services to ensure seamless user experiences across devices. I craft mobile-friendly, tablet-friendly, and desktop-friendly websites that adapt to any screen size.
+                {t('services.responsiveDesc')}
               </p>
               <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-teal-500 flex-shrink-0" />
-                  <span>Mobile-First Design</span>
+                  <span>{t('services.responsiveFeature1')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-teal-500 flex-shrink-0" />
-                  <span>Cross-Device Testing</span>
+                  <span>{t('services.responsiveFeature2')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-teal-500 flex-shrink-0" />
-                  <span>Performance Optimization</span>
+                  <span>{t('services.responsiveFeature3')}</span>
                 </li>
               </ul>
             </div>
@@ -173,23 +174,23 @@ export default function Services() {
             </div>
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
-                Shopify Development
+                {t('services.shopify')}
               </h2>
               <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
-                Expert Shopify development services to create and optimize your online store. From custom themes to app integration, I help you build a successful e-commerce presence.
+                {t('services.shopifyDesc')}
               </p>
               <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-green-500 flex-shrink-0" />
-                  <span>Custom Theme Development</span>
+                  <span>{t('services.shopifyFeature1')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-green-500 flex-shrink-0" />
-                  <span>Store Setup & Configuration</span>
+                  <span>{t('services.shopifyFeature2')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-green-500 flex-shrink-0" />
-                  <span>App Integration</span>
+                  <span>{t('services.shopifyFeature3')}</span>
                 </li>
               </ul>
             </div>
@@ -202,23 +203,23 @@ export default function Services() {
             </div>
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
-                Digital Marketing
+                {t('services.marketing')}
               </h2>
               <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
-                Comprehensive digital marketing strategies to grow your online presence. From social media management to content creation, I help you reach and engage your target audience.
+                {t('services.marketingDesc')}
               </p>
               <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-purple-500 flex-shrink-0" />
-                  <span>Social Media Management</span>
+                  <span>{t('services.marketingFeature1')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-purple-500 flex-shrink-0" />
-                  <span>Content Strategy</span>
+                  <span>{t('services.marketingFeature2')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-purple-500 flex-shrink-0" />
-                  <span>SEO Optimization</span>
+                  <span>{t('services.marketingFeature3')}</span>
                 </li>
               </ul>
             </div>
@@ -231,23 +232,23 @@ export default function Services() {
             </div>
             <div className="space-y-3 sm:space-y-4">
               <h2 className="text-white text-lg sm:text-xl font-semibold text-center">
-                Canva Design
+                {t('services.canva')}
               </h2>
               <p className="leading-relaxed text-gray-300 text-sm sm:text-base text-center">
-                Professional Canva design services for your marketing materials. From social media graphics to presentations, I create visually appealing designs that align with your brand.
+                {t('services.canvaDesc')}
               </p>
               <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-blue-500 flex-shrink-0" />
-                  <span>Social Media Graphics</span>
+                  <span>{t('services.canvaFeature1')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-blue-500 flex-shrink-0" />
-                  <span>Marketing Materials</span>
+                  <span>{t('services.canvaFeature2')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <FaCheckCircle className="text-blue-500 flex-shrink-0" />
-                  <span>Brand Templates</span>
+                  <span>{t('services.canvaFeature3')}</span>
                 </li>
               </ul>
             </div>
@@ -258,7 +259,7 @@ export default function Services() {
         <div className="text-center">
           <Link href="../Contact">
             <button className="group inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-white to-gray-200 text-black text-sm sm:text-base rounded-lg hover:from-gray-200 hover:to-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-              Get Started
+              {t('services.getStarted')}
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </Link>

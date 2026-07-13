@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import LanguageSwitcher from '../../components/LanguageSwitcher';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,12 +33,12 @@ export default function Header() {
   };
 
   const navItems = [
-    { label: "Home", path: "/" },
-    { label: "About", path: "/About" },
-    { label: "Skills", path: "/Skills" },
-    { label: "Projects", path: "/Projects" },
-    { label: "Services", path: "/Services" },
-    { label: "Contact", path: "/Contact" }
+    { label: t('nav.home'), path: "/" },
+    { label: t('nav.about'), path: "/About" },
+    { label: t('nav.skills'), path: "/Skills" },
+    { label: t('nav.projects'), path: "/Projects" },
+    { label: t('nav.services'), path: "/Services" },
+    { label: t('nav.contact'), path: "/Contact" }
   ];
 
   return (
@@ -62,6 +65,11 @@ export default function Header() {
               </Link>
             ))}
           </nav>
+
+          {/* Language Switcher - Desktop */}
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -117,6 +125,11 @@ export default function Header() {
                 </span>
               </Link>
             ))}
+
+            {/* Language Switcher - Mobile */}
+            <div className="pt-4">
+              <LanguageSwitcher />
+            </div>
           </nav>
         </div>
       </div>

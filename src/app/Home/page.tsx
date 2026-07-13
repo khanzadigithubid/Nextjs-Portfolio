@@ -4,8 +4,11 @@ import { FaGithub, FaLinkedin, FaArrowRight, FaCode, FaLaptopCode, FaRobot, FaAw
 import Image from "next/image";
 import Link from "next/link";
 import TestimonialsSection from '../components/TestimonialsSection';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Home = () => {
+  const { t } = useLanguage();
+
   return (
     <>
       <section className="bg-gradient-to-b from-black to-gray-900 text-gray-100 body-font min-h-screen flex items-center">
@@ -17,16 +20,16 @@ const Home = () => {
                 <div className="inline-block">
                   <div className="flex items-center space-x-2 text-gray-400">
                     <FaRegClock className="text-gray-500" />
-                    <span className="text-sm font-medium">Available for opportunities</span>
+                    <span className="text-sm font-medium">{t('home.available')}</span>
                   </div>
                   <div className="w-16 sm:w-20 h-1 bg-gray-600 mt-2"></div>
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white">
-                  <span className="block mb-2 text-gray-300">Hello, I am Khanzadi Wazir Ali</span>
+                  <span className="block mb-2 text-gray-300">{t('home.greeting')}</span>
                 </h1>
                 <div className="flex items-center justify-center md:justify-start space-x-2 sm:space-x-3 text-gray-300">
                   <span className="h-1 w-8 sm:w-12 bg-gray-600"></span>
-                  <span className="text-base sm:text-lg font-medium">Full Stack Developer</span>
+                  <span className="text-base sm:text-lg font-medium">{t('home.title')}</span>
                   <span className="px-2 sm:px-3 py-1 bg-gray-800 rounded-full text-xs sm:text-sm">ADC PAT 2</span>
                 </div>
               </div>
@@ -37,16 +40,16 @@ const Home = () => {
                    data-aos="fade-up"
                    data-aos-easing="ease-out-cubic"
                    data-aos-duration="500">
-                  I am a web developer and ADC PAT 2 student focused on technology through cloud-applied generative AI engineering. My journey is about mastering the latest AI tools to enhance web development and drive business innovation.
+                  {t('home.description')}
                 </p>
                 <div className="flex items-center space-x-3 sm:space-x-4 text-xs sm:text-sm text-gray-400">
                   <div className="flex items-center">
                     <FaAward className="mr-1.5 sm:mr-2" />
-                    <span>GIAIC Certified</span>
+                    <span>{t('home.certified')}</span>
                   </div>
                   <div className="flex items-center">
                     <FaCode className="mr-1.5 sm:mr-2" />
-                    <span>TypeScript Expert</span>
+                    <span>{t('home.expert')}</span>
                   </div>
                 </div>
               </div>
@@ -58,8 +61,8 @@ const Home = () => {
                     <FaCode className="text-gray-200 text-sm sm:text-base" />
                   </div>
                   <div>
-                    <span className="text-xs sm:text-sm font-medium text-gray-200">Web Development</span>
-                    <p className="text-[10px] sm:text-xs text-gray-400">Frontend & Backend</p>
+                    <span className="text-xs sm:text-sm font-medium text-gray-200">{t('home.webDev')}</span>
+                    <p className="text-[10px] sm:text-xs text-gray-400">{t('home.webDevSub')}</p>
                   </div>
                 </div>
                 <div className="group flex items-center space-x-2 sm:space-x-3 p-3 sm:p-4 bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
@@ -67,8 +70,8 @@ const Home = () => {
                     <FaLaptopCode className="text-gray-200 text-sm sm:text-base" />
                   </div>
                   <div>
-                    <span className="text-xs sm:text-sm font-medium text-gray-200">Next.js</span>
-                    <p className="text-[10px] sm:text-xs text-gray-400">Full Stack Solutions</p>
+                    <span className="text-xs sm:text-sm font-medium text-gray-200">{t('home.nextjs')}</span>
+                    <p className="text-[10px] sm:text-xs text-gray-400">{t('home.nextjsSub')}</p>
                   </div>
                 </div>
                 <div className="group flex items-center space-x-2 sm:space-x-3 p-3 sm:p-4 bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
@@ -76,8 +79,8 @@ const Home = () => {
                     <FaRobot className="text-gray-200 text-sm sm:text-base" />
                   </div>
                   <div>
-                    <span className="text-xs sm:text-sm font-medium text-gray-200">AI Engineering</span>
-                    <p className="text-[10px] sm:text-xs text-gray-400">Cloud Applied AI</p>
+                    <span className="text-xs sm:text-sm font-medium text-gray-200">{t('home.aiEng')}</span>
+                    <p className="text-[10px] sm:text-xs text-gray-400">{t('home.aiEngSub')}</p>
                   </div>
                 </div>
               </div>
@@ -89,7 +92,7 @@ const Home = () => {
                     href="/Contact"
                     className="group inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
                   >
-                    <span className="mr-1.5 sm:mr-2">Get in Touch</span>
+                    <span className="mr-1.5 sm:mr-2">{t('home.cta')}</span>
                     <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>

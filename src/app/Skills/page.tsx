@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaShopify, FaSearch, FaShareAlt, FaCode, FaChevronDown, FaPalette, FaRobot } from 'react-icons/fa';
 import { SiTailwindcss, SiTypescript, SiNextdotjs, SiFigma } from 'react-icons/si';
 import Breadcrumbs from '../components/Breadcrumbs';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface SkillCardProps {
   title: string;
-  description: string;
+  skillKey: string;
   colorClass: string;
   svgIcon: React.ReactNode;
   dataAos?: string;
@@ -17,13 +18,15 @@ interface SkillCardProps {
 
 function SkillCard({
   title,
-  description,
+  skillKey,
   colorClass,
   svgIcon,
   dataAos,
   dataAosDelay,
   level,
 }: SkillCardProps) {
+  const { t } = useLanguage();
+
   const getLevelColor = (level: string) => {
     switch (level?.toLowerCase()) {
       case 'expert': return 'bg-green-500';
@@ -46,7 +49,9 @@ function SkillCard({
             {svgIcon}
           </div>
           <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">{title}</h3>
-          <p className="text-xs sm:text-sm text-gray-300 text-center leading-relaxed mb-2 sm:mb-3">{description}</p>
+          <p className="text-xs sm:text-sm text-gray-300 text-center leading-relaxed mb-2 sm:mb-3">
+            {t(`skills.items.${skillKey}.description`)}
+          </p>
           {level && (
             <div className="flex items-center space-x-2 text-xs sm:text-sm">
               <div className={`px-2 py-1 rounded-full ${getLevelColor(level)} text-white text-[10px] sm:text-xs font-medium`}>
@@ -63,36 +68,36 @@ function SkillCard({
 const skillsData = {
   Frontend: [
     {
+      key: "html",
       title: "HTML",
-      description: "Proficient in semantic HTML5 markup and modern web standards.",
       colorClass: "bg-orange-500",
       svgIcon: <FaHtml5 size={32} className="sm:text-4xl text-white" />,
       level: "Advanced"
     },
     {
+      key: "css",
       title: "CSS",
-      description: "Expert in responsive design and modern CSS techniques.",
       colorClass: "bg-blue-500",
       svgIcon: <FaCss3Alt size={32} className="sm:text-4xl text-white" />,
       level: "Advanced"
     },
     {
+      key: "tailwind",
       title: "Tailwind CSS",
-      description: "Skilled in utility-first CSS framework for rapid development.",
       colorClass: "bg-cyan-500",
       svgIcon: <SiTailwindcss size={32} className="sm:text-4xl text-white" />,
       level: "Expert"
     },
     {
+      key: "javascript",
       title: "JavaScript",
-      description: "Strong foundation in modern JavaScript and ES6+ features.",
       colorClass: "bg-yellow-500",
       svgIcon: <FaJsSquare size={32} className="sm:text-4xl text-white" />,
       level: "Advanced"
     },
     {
+      key: "react",
       title: "React.js",
-      description: "Proficient in building interactive user interfaces.",
       colorClass: "bg-cyan-600",
       svgIcon: <FaReact size={32} className="sm:text-4xl text-white" />,
       level: "Advanced"
@@ -100,22 +105,22 @@ const skillsData = {
   ],
   Backend: [
     {
+      key: "typescript",
       title: "TypeScript",
-      description: "Experience with type-safe JavaScript development.",
       colorClass: "bg-blue-600",
       svgIcon: <SiTypescript size={32} className="sm:text-4xl text-white" />,
       level: "Intermediate"
     },
     {
+      key: "nextjs",
       title: "Next.js",
-      description: "Experience with server-side rendering and static generation.",
       colorClass: "bg-slate-800",
       svgIcon: <SiNextdotjs size={32} className="sm:text-4xl text-white" />,
       level: "Intermediate"
     },
     {
+      key: "nodejs",
       title: "Node.js",
-      description: "Skilled in server-side JavaScript development.",
       colorClass: "bg-green-600",
       svgIcon: <FaNodeJs size={32} className="sm:text-4xl text-white" />,
       level: "Intermediate"
@@ -123,15 +128,15 @@ const skillsData = {
   ],
   Design: [
     {
+      key: "canva",
       title: "Canva",
-      description: "Expert in creating professional graphics and visual content.",
       colorClass: "bg-blue-400",
       svgIcon: <FaPalette size={32} className="sm:text-4xl text-white" />,
       level: "Expert"
     },
     {
+      key: "figma",
       title: "Figma",
-      description: "Proficient in UI/UX design and prototyping.",
       colorClass: "bg-purple-500",
       svgIcon: <SiFigma size={32} className="sm:text-4xl text-white" />,
       level: "Intermediate"
@@ -139,15 +144,15 @@ const skillsData = {
   ],
   Tools: [
     {
+      key: "aiTools",
       title: "AI Tools",
-      description: "Experience with AI-powered development and content generation.",
       colorClass: "bg-indigo-600",
       svgIcon: <FaRobot size={32} className="sm:text-4xl text-white" />,
       level: "Advanced"
     },
     {
+      key: "shopify",
       title: "Shopify",
-      description: "Skilled in e-commerce development and store management.",
       colorClass: "bg-green-500",
       svgIcon: <FaShopify size={32} className="sm:text-4xl text-white" />,
       level: "Intermediate"
@@ -155,15 +160,15 @@ const skillsData = {
   ],
   "Version Control": [
     {
+      key: "git",
       title: "Git",
-      description: "Proficient in version control and collaborative development.",
       colorClass: "bg-orange-600",
       svgIcon: <FaGitAlt size={32} className="sm:text-4xl text-white" />,
       level: "Advanced"
     },
     {
+      key: "github",
       title: "GitHub",
-      description: "Experience with repository management and collaboration.",
       colorClass: "bg-slate-700",
       svgIcon: <FaGithub size={32} className="sm:text-4xl text-white" />,
       level: "Advanced"
@@ -171,15 +176,15 @@ const skillsData = {
   ],
   Marketing: [
     {
+      key: "seo",
       title: "SEO",
-      description: "Knowledge of search engine optimization and web analytics.",
       colorClass: "bg-teal-600",
       svgIcon: <FaSearch size={32} className="sm:text-4xl text-white" />,
       level: "Intermediate"
     },
     {
+      key: "socialMedia",
       title: "Social Media Marketing",
-      description: "Experience in social media strategy and content management.",
       colorClass: "bg-pink-500",
       svgIcon: <FaShareAlt size={32} className="sm:text-4xl text-white" />,
       level: "Advanced"
@@ -188,6 +193,7 @@ const skillsData = {
 };
 
 export default function Skills() {
+  const { t } = useLanguage();
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
     Frontend: true,
     Backend: true,
@@ -232,6 +238,18 @@ export default function Skills() {
 
   const allExpanded = Object.values(expandedCategories).every(v => v);
 
+  const getCategoryTranslation = (category: string) => {
+    const categoryMap: { [key: string]: string } = {
+      "Frontend": t('skills.categories.frontend'),
+      "Backend": t('skills.categories.backend'),
+      "Design": t('skills.categories.design'),
+      "Tools": t('skills.categories.tools'),
+      "Version Control": t('skills.categories.versionControl'),
+      "Marketing": t('skills.categories.marketing')
+    };
+    return categoryMap[category] || category;
+  };
+
   return (
     <>
       <Breadcrumbs />
@@ -242,15 +260,15 @@ export default function Skills() {
           <div className="inline-block mb-3 sm:mb-4">
             <div className="flex items-center justify-center space-x-2 text-gray-400">
               <FaCode className="text-gray-500" />
-              <span className="text-xs sm:text-sm font-medium tracking-wider">TECHNICAL SKILLS</span>
+              <span className="text-xs sm:text-sm font-medium tracking-wider">{t('skills.technical')}</span>
             </div>
             <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-800 mx-auto mt-2"></div>
           </div>
           <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-3 sm:mb-4">
-            Technical Expertise
+            {t('skills.title')}
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-            A comprehensive showcase of technical skills organized by domain and expertise level.
+            {t('skills.subtitle')}
           </p>
         </div>
 
@@ -260,7 +278,7 @@ export default function Skills() {
             onClick={toggleAllCategories}
             className="inline-flex items-center px-6 py-2.5 bg-white text-black rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl text-sm font-medium"
           >
-            {allExpanded ? 'Collapse All' : 'Expand All'}
+            {allExpanded ? t('skills.collapseAll') : t('skills.expandAll')}
             <FaChevronDown className={`ml-2 transition-transform duration-300 ${allExpanded ? 'rotate-180' : ''}`} />
           </button>
         </div>
@@ -275,9 +293,9 @@ export default function Skills() {
                 className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-700 transition-colors duration-300"
               >
                 <div className="flex items-center space-x-3">
-                  <h2 className="text-xl sm:text-2xl font-semibold text-white">{category}</h2>
+                  <h2 className="text-xl sm:text-2xl font-semibold text-white">{getCategoryTranslation(category)}</h2>
                   <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium">
-                    {skills.length} skills
+                    {skills.length} {t('skills.skillsCount')}
                   </span>
                 </div>
                 <FaChevronDown
@@ -297,7 +315,11 @@ export default function Skills() {
                   {skills.map((skill, index) => (
                     <SkillCard
                       key={skill.title}
-                      {...skill}
+                      title={skill.title}
+                      skillKey={skill.key}
+                      colorClass={skill.colorClass}
+                      svgIcon={skill.svgIcon}
+                      level={skill.level}
                       dataAos="fade-up"
                       dataAosDelay={`${(index % 4) * 50}`}
                     />

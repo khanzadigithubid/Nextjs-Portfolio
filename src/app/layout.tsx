@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import {ThemeProvider} from './context/ThemeContext';
+import { LanguageProvider } from '../context/LanguageContext';
 import Header from './components/Header';
 import WhatsAppButton from './components/WhatsAppButton';
 import StructuredData from './components/StructuredData';
@@ -69,36 +70,41 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <StructuredData />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider>
-          <NextTopLoader
-            color="#475569"
-            initialPosition={0.08}
-            crawlSpeed={200}
-            height={3}
-            crawl={true}
-            showSpinner={false}
-            easing="ease"
-            speed={200}
-            shadow="0 0 10px #475569,0 0 5px #475569"
-          />
-          <Header />
-          <main>{children}</main>
-          <WhatsAppButton />
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-          />
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider>
+            <NextTopLoader
+              color="#475569"
+              initialPosition={0.08}
+              crawlSpeed={200}
+              height={3}
+              crawl={true}
+              showSpinner={false}
+              easing="ease"
+              speed={200}
+              shadow="0 0 10px #475569,0 0 5px #475569"
+            />
+            <Header />
+            <main>{children}</main>
+            <WhatsAppButton />
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

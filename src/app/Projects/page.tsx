@@ -6,147 +6,150 @@ import { FaGithub, FaExternalLinkAlt, FaCode, FaStar, FaRegClock, FaChevronDown 
 import Link from "next/link";
 import Breadcrumbs from '../components/Breadcrumbs';
 import ImageLightbox from '../components/ImageLightbox';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Metadata is handled in layout.tsx for client components
 
 const projects = [
   {
+    key: "cryptoWebsite",
     src: "/project7.jpg",
     alt: "Crypto Website",
-    title: "Crypto Website",
-    description: "A cryptocurrency website built with modern web technologies including HTML, CSS, and JavaScript, delivering a seamless and interactive user experience.",
     link: "https://simple-website-crypto.netlify.app/",
     category: "Web Apps"
   },
   {
+    key: "oopProject",
     src: "/project2.jpg",
     alt: "OOP Project",
-    title: "OOP Project",
-    description: "Object-Oriented Programming project demonstrating coding best practices with clean architecture and maintainable code structure.",
     link: "https://github.com/khanzadigithubid/OOP-Project",
     category: "Web Apps"
   },
   {
+    key: "tradingWebsite",
     src: "/project3.jpg",
     alt: "Trading Website",
-    title: "Trading Website",
-    description: "React-powered trading platform offering real-time data visualization and an interactive interface for trading needs.",
     link: "https://reacts-tradingwebsite.netlify.app/",
     category: "Web Apps"
   },
   {
+    key: "chatAI",
     src: "/project11.jpg",
     alt: "Chat AI",
-    title: "Chat AI",
-    description: "React-based AI chat application powered by cutting-edge artificial intelligence for seamless intelligent conversations.",
     link: "https://chat-ai-one-gamma.vercel.app/",
     category: "AI Projects"
   },
   {
+    key: "googleSearchApp",
     src: "/project5.jpg",
     alt: "Google Search App",
-    title: "API Google Search App",
-    description: "Search application utilizing Google Search API to fetch web pages, images, and news with real-time results.",
     link: "https://github.com/khanzadigithubid/API-Google-Search-App",
     category: "API Integration"
   },
   {
+    key: "recipeSearchApp",
     src: "/project6.jpg",
     alt: "Recipe Search App",
-    title: "API Recipe Search App",
-    description: "Recipe search application with API integration allowing users to discover recipes from around the world by ingredients.",
     link: "https://github.com/khanzadigithubid/API-Recipe-App",
     category: "API Integration"
   },
   {
+    key: "weatherApp",
     src: "/project8.jpg",
     alt: "Weather App",
-    title: "API Weather App",
-    description: "Weather application providing real-time weather data, forecasts, and alerts for any location worldwide using Weather API.",
     link: "https://github.com/khanzadigithubid/API-Weather-Project",
     category: "API Integration"
   },
   {
+    key: "jsWeatherApp",
     src: "/project12.jpg",
     alt: "JavaScript Weather App",
-    title: "JavaScript Weather App",
-    description: "Pure JavaScript weather application allowing users to enter their city and receive real-time temperatures and forecasts.",
     link: "https://javascript-api-weather-app.netlify.app/",
     category: "API Integration"
   },
   {
+    key: "todoList",
     src: "/project10.jpg",
     alt: "ToDo List",
-    title: "ToDo List Application",
-    description: "JavaScript-based task management application for adding, completing, and organizing tasks efficiently.",
     link: "https://java-script-to-do-list-alpha.vercel.app/",
     category: "Web Apps"
   },
   {
+    key: "resumeBuilder",
     src: "/project13.jpg",
-    alt: "Hackathon Resume Builder",
-    title: "Resume Builder",
-    description: "Professional resume builder application developed with HTML, CSS, and TypeScript for creating, editing, and downloading resumes.",
+    alt: "Resume Builder",
     link: "https://hackathon-omega-six.vercel.app/",
     category: "Web Apps"
   },
   {
+    key: "nextjsBlog",
     src: "/project14.jpg",
     alt: "Next.js 15 Blog",
-    title: "Next.js 15 Blog",
-    description: "Modern blog platform built with Next.js 15 features, offering optimized performance and seamless navigation experience.",
     link: "https://nextjs-15-and-chat-bot.vercel.app/",
     category: "Next.js Projects"
   },
   {
+    key: "shadcnBlog",
     src: "/project15.jpg",
-    alt: "Shadcn UI and Radix UI Blog",
-    title: "Shadcn & Radix UI Blog",
-    description: "Blog showcasing customizable and accessible UI components built with ShadCN and Radix UI for modern web development.",
+    alt: "Shadcn UI Blog",
     link: "https://bm-shadcn-ui-and-radix-ui.vercel.app/",
     category: "Next.js Projects"
   },
   {
+    key: "figmaConversion",
     src: "/project16.jpg",
-    alt: "Figma UI/UX Ddsgnr Website",
-    title: "Figma to Next.js Conversion",
-    description: "Pixel-perfect conversion of Figma UI/UX designs into responsive websites using Next.js, Tailwind CSS, and TypeScript.",
+    alt: "Figma Conversion",
     link: "https://bm-shadcn-ui-and-radix-ui.vercel.app/",
     category: "UI/UX Projects"
   },
   {
+    key: "foodTuckWebsite",
     src: "/project18.jpg",
-    alt: "Figma UI/UX Hackathon FoodTuck Website",
-    title: "FoodTuck Website",
-    description: "Hackathon project converting Figma designs into a fully responsive food delivery website with Next.js and Tailwind CSS.",
+    alt: "FoodTuck Website",
     link: "https://ui-ux-hackathon-foodtuck-website.vercel.app/",
     category: "UI/UX Projects"
   },
   {
+    key: "programmingBlog",
     src: "/project19.jpg",
-    alt: "Programming Languages Blog",
-    title: "Programming Languages Blog",
-    description: "Educational blog covering programming languages from fundamentals to advanced concepts with tutorials and best practices.",
+    alt: "Programming Blog",
     link: "https://nextjs-blog-website-dusky.vercel.app/",
     category: "Next.js Projects"
   },
   {
+    key: "serverSideRecipeApp",
     src: "/project20.jpg",
-    alt: "Server Side API Fetch Recipe App",
-    title: "Server-Side Recipe App",
-    description: "Recipe application with server-side API integration and rendering for optimal performance and SEO benefits.",
+    alt: "Server-Side Recipe App",
     link: "https://server-side-api-fetch.vercel.app/",
     category: "API Integration"
   },
 ];
 
 const Project = () => {
+  const { t, locale } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [showAll, setShowAll] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const categories = ["All", "Web Apps", "AI Projects", "API Integration", "Next.js Projects", "UI/UX Projects"];
+
+  // Get translated project data
+  const getProjectTranslation = (projectKey: string, field: 'title' | 'description') => {
+    return t(`projects.items.${projectKey}.${field}`);
+  };
+
+  const getCategoryTranslation = (category: string) => {
+    const categoryMap: { [key: string]: string } = {
+      "All": t('projects.categories.all'),
+      "Web Apps": t('projects.categories.webApps'),
+      "AI Projects": t('projects.categories.aiProjects'),
+      "API Integration": t('projects.categories.apiIntegration'),
+      "Next.js Projects": t('projects.categories.nextjsProjects'),
+      "UI/UX Projects": t('projects.categories.uiuxProjects')
+    };
+    return categoryMap[category] || category;
+  };
 
   const filteredProjects = selectedCategory === "All"
     ? projects
@@ -183,15 +186,15 @@ const Project = () => {
           <div className="inline-block mb-3 sm:mb-4">
             <div className="flex items-center justify-center space-x-2 text-gray-400">
               <FaCode className="text-gray-500" />
-              <span className="text-sm font-medium">Featured Projects</span>
+              <span className="text-sm font-medium">{t('projects.featured')}</span>
             </div>
             <div className="w-20 sm:w-24 h-1 bg-gray-600 mx-auto mt-2"></div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3 sm:mb-4">
-            Projects
+            {t('projects.title')}
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-lg text-gray-300 px-4 sm:px-0">
-            Explore a curated collection of projects showcasing modern web development expertise
+            {t('projects.subtitle')}
           </p>
         </div>
 
@@ -202,8 +205,8 @@ const Project = () => {
               <FaCode className="text-gray-200 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">{projects.length} Projects</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">Completed with excellence</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">{projects.length} {t('projects.projectsCount')}</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">{t('projects.completed')}</p>
             </div>
           </div>
           <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm">
@@ -211,8 +214,8 @@ const Project = () => {
               <FaStar className="text-gray-200 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">Quality Code</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">Clean & maintainable</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">{t('projects.quality')}</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">{t('projects.qualitySub')}</p>
             </div>
           </div>
           <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm">
@@ -220,8 +223,8 @@ const Project = () => {
               <FaRegClock className="text-gray-200 text-sm sm:text-base" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">Latest Tech</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">Modern frameworks & tools</p>
+              <h3 className="text-xs sm:text-sm font-medium text-white">{t('projects.latest')}</h3>
+              <p className="text-[10px] sm:text-xs text-gray-400">{t('projects.latestSub')}</p>
             </div>
           </div>
         </div>
@@ -241,7 +244,7 @@ const Project = () => {
                   : 'bg-gray-800 text-gray-200 hover:bg-gray-700 shadow-sm'
               }`}
             >
-              {category}
+              {getCategoryTranslation(category)}
             </button>
           ))}
         </div>
@@ -272,7 +275,7 @@ const Project = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-lg">
-                        Click to view
+                        {t('projects.clickToView')}
                       </span>
                     </div>
                     <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex justify-between">
@@ -300,16 +303,16 @@ const Project = () => {
                 <div className="flex-1 p-4 sm:p-6 bg-gray-800">
                   <div className="mb-2">
                     <span className="inline-block px-2 py-1 text-[10px] sm:text-xs font-medium text-gray-300 bg-gray-700 rounded-full">
-                      {project.category}
+                      {getCategoryTranslation(project.category)}
                     </span>
                   </div>
                   <Link href={project.link} target="_blank" rel="noopener noreferrer">
                     <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3 hover:text-gray-300 transition-colors duration-300">
-                      {project.title}
+                      {getProjectTranslation(project.key, 'title')}
                     </h2>
                   </Link>
                   <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                    {project.description}
+                    {getProjectTranslation(project.key, 'description')}
                   </p>
                 </div>
               </div>
@@ -324,7 +327,7 @@ const Project = () => {
               onClick={() => setShowAll(!showAll)}
               className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white text-black rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base font-medium"
             >
-              {showAll ? 'Show Less' : `Show More Projects (${filteredProjects.length - 8} more)`}
+              {showAll ? t('projects.showLess') : `${t('projects.showMore')} (${filteredProjects.length - 8} ${t('projects.more')})`}
               <FaChevronDown className={`ml-2 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
             </button>
           </div>

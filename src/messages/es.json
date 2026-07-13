@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "home": {
+    "greeting": "Hola, soy Khanzadi Wazir Ali",
+    "title": "Desarrolladora Full Stack",
+    "description": "Soy desarrolladora web y estudiante de ADC PAT 2 enfocada en tecnología a través de ingeniería de IA generativa aplicada en la nube.",
+    "cta": "Contáctame",
+    "available": "Disponible para oportunidades"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "subtitle": "Perfil Profesional",
+    "heading": "Desarrolladora Frontend y Entusiasta de IA",
+    "downloadResume": "Descargar CV"
+  },
+  "skills": {
+    "title": "Experiencia Técnica",
+    "subtitle": "Habilidades Técnicas"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Proyectos Destacados"
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Servicios Profesionales"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "subtitle": "Ponte en Contacto",
+    "name": "Nombre",
+    "email": "Correo",
+    "phone": "Teléfono",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando..."
+  }
+}

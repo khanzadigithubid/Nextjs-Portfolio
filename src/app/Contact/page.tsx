@@ -7,8 +7,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Breadcrumbs from '../components/Breadcrumbs';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formMessage, setFormMessage] = useState('');
@@ -147,22 +149,22 @@ export default function Contact() {
           <div className="inline-block mb-2 sm:mb-3">
             <div className="flex items-center justify-center space-x-2 text-slate-600">
               <FaEnvelope className="text-slate-500 w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-xs sm:text-sm font-medium">Get in Touch</span>
+              <span className="text-xs sm:text-sm font-medium">{t('contact.getInTouch')}</span>
             </div>
             <div className="w-16 sm:w-20 h-0.5 sm:h-1 bg-slate-300 mx-auto mt-1.5 sm:mt-2"></div>
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-800 mb-2 sm:mb-3">
-            Contact Me
+            {t('contact.title')}
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-2 sm:px-4">
-            Let&apos;s discuss your project and create something amazing together
+            {t('contact.subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Form */}
           <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 border border-gray-700" data-aos="fade-right">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4 md:mb-6">Send a Message</h2>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4 md:mb-6">{t('contact.sendMessage')}</h2>
 
             {/* Inline Success Message */}
             {formStatus === 'success' && (
@@ -170,7 +172,7 @@ export default function Contact() {
                 <div className="flex items-start space-x-3">
                   <FaCheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-sm font-semibold text-green-300 mb-1">Success!</h3>
+                    <h3 className="text-sm font-semibold text-green-300 mb-1">{t('contact.success')}</h3>
                     <p className="text-xs sm:text-sm text-green-200">{formMessage}</p>
                   </div>
                 </div>
@@ -183,7 +185,7 @@ export default function Contact() {
                 <div className="flex items-start space-x-3">
                   <FaExclamationCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-sm font-semibold text-red-300 mb-1">Error</h3>
+                    <h3 className="text-sm font-semibold text-red-300 mb-1">{t('contact.error')}</h3>
                     <p className="text-xs sm:text-sm text-red-200">{formMessage}</p>
                   </div>
                 </div>
@@ -192,29 +194,29 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-6">
               <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="name" className="text-xs sm:text-sm font-medium text-gray-300">Name</label>
+                <label htmlFor="name" className="text-xs sm:text-sm font-medium text-gray-300">{t('contact.name')}</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
                   className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-gray-600 bg-gray-700 text-white focus:border-sky-500 focus:ring-2 focus:ring-sky-900 transition-colors duration-200"
-                  placeholder="Your name"
+                  placeholder={t('contact.namePlaceholder')}
                 />
               </div>
               <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="email" className="text-xs sm:text-sm font-medium text-gray-300">Email</label>
+                <label htmlFor="email" className="text-xs sm:text-sm font-medium text-gray-300">{t('contact.email')}</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
                   className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-gray-600 bg-gray-700 text-white focus:border-sky-500 focus:ring-2 focus:ring-sky-900 transition-colors duration-200"
-                  placeholder="Your email"
+                  placeholder={t('contact.emailPlaceholder')}
                 />
               </div>
               <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="phone" className="text-xs sm:text-sm font-medium text-gray-300">Phone Number</label>
+                <label htmlFor="phone" className="text-xs sm:text-sm font-medium text-gray-300">{t('contact.phone')}</label>
                 <div className="phone-input-container">
                   <PhoneInput
                     country={'pk'}
@@ -235,7 +237,7 @@ export default function Contact() {
                     searchClass="phone-search"
                     enableSearch={true}
                     searchPlaceholder="Search country"
-                    placeholder="Enter phone number"
+                    placeholder={t('contact.phonePlaceholder')}
                   />
                   {phoneError && (
                     <p className="mt-1 text-xs text-red-400">{phoneError}</p>
@@ -243,14 +245,14 @@ export default function Contact() {
                 </div>
               </div>
               <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="message" className="text-xs sm:text-sm font-medium text-gray-300">Message</label>
+                <label htmlFor="message" className="text-xs sm:text-sm font-medium text-gray-300">{t('contact.message')}</label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   rows={4}
                   className="w-full px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base rounded-lg border-2 border-gray-600 bg-gray-700 text-white focus:border-sky-500 focus:ring-2 focus:ring-sky-900 transition-colors duration-200"
-                  placeholder="Your message"
+                  placeholder={t('contact.messagePlaceholder')}
                 />
               </div>
               <button
@@ -265,10 +267,10 @@ export default function Contact() {
                 {isSubmitting ? (
                   <>
                     <FaSpinner className="animate-spin mr-2" />
-                    Sending...
+                    {t('contact.sending')}
                   </>
                 ) : (
-                  'Send Message'
+                  t('contact.sendButton')
                 )}
               </button>
             </form>
@@ -291,14 +293,14 @@ export default function Contact() {
 
             {/* Contact Details */}
             <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4 md:mb-6">Contact Information</h2>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4 md:mb-6">{t('contact.contactInfo')}</h2>
               <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="p-2 sm:p-2.5 md:p-3 bg-gray-700 rounded-lg">
                     <FaEnvelope className="text-sky-400 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm font-medium text-gray-400">Email</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-400">{t('contact.email')}</p>
                     <a
                       href="mailto:khanzadiwazirali9@gmail.com"
                       className="text-xs sm:text-sm md:text-base text-white hover:text-sky-400 transition-colors duration-200"
@@ -312,15 +314,15 @@ export default function Contact() {
                     <FaMapMarkerAlt className="text-sky-400 w-4 h-4 sm:w-5 sm:h-5 md:text-lg" />
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm font-medium text-gray-400">Location</p>
-                    <p className="text-xs sm:text-sm md:text-base text-white">Karachi</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-400">{t('contact.location')}</p>
+                    <p className="text-xs sm:text-sm md:text-base text-white">{t('contact.city')}</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="mt-4 sm:mt-6 md:mt-8 pt-4 sm:pt-6 md:pt-8 border-t border-gray-700">
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2 sm:mb-3 md:mb-4">Connect with Me</h3>
+                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2 sm:mb-3 md:mb-4">{t('contact.connect')}</h3>
                 <div className="flex space-x-2 sm:space-x-3 md:space-x-4">
                   <a
                     href="https://www.linkedin.com/in/khanzadi-wazir-ali-7a97832b6/"

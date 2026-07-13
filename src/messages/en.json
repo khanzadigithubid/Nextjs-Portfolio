@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "home": {
+    "greeting": "Hello, I am Khanzadi Wazir Ali",
+    "title": "Full Stack Developer",
+    "description": "I am a web developer and ADC PAT 2 student focused on technology through cloud-applied generative AI engineering. My journey is about mastering the latest AI tools to enhance web development and drive business innovation.",
+    "cta": "Get in Touch",
+    "available": "Available for opportunities"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Professional Profile",
+    "heading": "Frontend Developer & AI Enthusiast",
+    "downloadResume": "Download Resume"
+  },
+  "skills": {
+    "title": "Technical Expertise",
+    "subtitle": "Technical Skills"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Featured Projects"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Professional Services"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Get in Touch",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending..."
+  }
+}
