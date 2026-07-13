@@ -142,38 +142,38 @@ export default function Contact() {
   return (
     <>
       <Breadcrumbs />
-      <section className="bg-gradient-to-b from-black to-gray-900 py-8 sm:py-12 md:py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-black to-gray-900 py-16 sm:py-20 md:py-24">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
         {/* Header Section */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <div className="inline-block mb-2 sm:mb-3">
-            <div className="flex items-center justify-center space-x-2 text-slate-600">
-              <FaEnvelope className="text-slate-500 w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-xs sm:text-sm font-medium">{t('contact.getInTouch')}</span>
+        <div className="text-center mb-16 sm:mb-20">
+          <div className="inline-block mb-4">
+            <div className="flex items-center justify-center space-x-2 text-gray-400">
+              <FaEnvelope className="text-gray-500 text-sm" />
+              <span className="text-sm font-medium tracking-wide">{t('contact.getInTouch')}</span>
             </div>
-            <div className="w-16 sm:w-20 h-0.5 sm:h-1 bg-slate-300 mx-auto mt-1.5 sm:mt-2"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-800 mx-auto mt-2"></div>
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-slate-800 mb-2 sm:mb-3">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4">
             {t('contact.title')}
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-2 sm:px-4">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('contact.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 border border-gray-700" data-aos="fade-right">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-3 sm:mb-4 md:mb-6">{t('contact.sendMessage')}</h2>
+          <div className="bg-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700" data-aos="fade-right">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-6">{t('contact.sendMessage')}</h2>
 
             {/* Inline Success Message */}
             {formStatus === 'success' && (
-              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-900/30 border-l-4 border-green-500 rounded-lg animate-slide-down">
+              <div className="mb-6 p-5 bg-green-900/30 border-l-4 border-green-500 rounded-lg animate-slide-down">
                 <div className="flex items-start space-x-3">
-                  <FaCheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                  <FaCheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-sm font-semibold text-green-300 mb-1">{t('contact.success')}</h3>
-                    <p className="text-xs sm:text-sm text-green-200">{formMessage}</p>
+                    <h3 className="text-base font-semibold text-green-300 mb-1">{t('contact.success')}</h3>
+                    <p className="text-sm text-green-200">{formMessage}</p>
                   </div>
                 </div>
               </div>
@@ -181,12 +181,12 @@ export default function Contact() {
 
             {/* Inline Error Message */}
             {formStatus === 'error' && (
-              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-900/30 border-l-4 border-red-500 rounded-lg animate-slide-down">
+              <div className="mb-6 p-5 bg-red-900/30 border-l-4 border-red-500 rounded-lg animate-slide-down">
                 <div className="flex items-start space-x-3">
-                  <FaExclamationCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                  <FaExclamationCircle className="w-6 h-6 text-red-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-sm font-semibold text-red-300 mb-1">{t('contact.error')}</h3>
-                    <p className="text-xs sm:text-sm text-red-200">{formMessage}</p>
+                    <h3 className="text-base font-semibold text-red-300 mb-1">{t('contact.error')}</h3>
+                    <p className="text-sm text-red-200">{formMessage}</p>
                   </div>
                 </div>
               </div>

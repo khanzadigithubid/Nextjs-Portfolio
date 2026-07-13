@@ -189,57 +189,57 @@ const Project = () => {
     <>
       <Breadcrumbs />
       <section className="text-gray-100 body-font bg-gradient-to-b from-black to-gray-900">
-      <div className="container px-4 sm:px-5 py-12 sm:py-16 md:py-24 mx-auto">
+      <div className="container px-6 sm:px-8 lg:px-12 py-16 sm:py-20 md:py-24 mx-auto max-w-7xl">
         {/* Header Section */}
-        <div className="flex flex-col text-center w-full mb-12 sm:mb-16 md:mb-20">
-          <div className="inline-block mb-3 sm:mb-4">
+        <div className="flex flex-col text-center w-full mb-16 sm:mb-20">
+          <div className="inline-block mb-4 mx-auto">
             <div className="flex items-center justify-center space-x-2 text-gray-400">
-              <FaCode className="text-gray-500" />
-              <span className="text-sm font-medium">{t('projects.featured')}</span>
+              <FaCode className="text-gray-500 text-sm" />
+              <span className="text-sm font-medium tracking-wide">{t('projects.featured')}</span>
             </div>
-            <div className="w-20 sm:w-24 h-1 bg-gray-600 mx-auto mt-2"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-800 mx-auto mt-2"></div>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-3 sm:mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4">
             {t('projects.title')}
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-lg text-gray-300 px-4 sm:px-0">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-lg sm:text-xl text-gray-300">
             {t('projects.subtitle')}
           </p>
         </div>
 
         {/* Project Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm">
-            <div className="p-2 sm:p-3 bg-gray-700 rounded-lg">
-              <FaCode className="text-gray-200 text-sm sm:text-base" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12 sm:mb-16">
+          <div className="flex items-center space-x-4 p-5 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:shadow-xl transition-all duration-300">
+            <div className="p-3 bg-gray-700 rounded-lg">
+              <FaCode className="text-gray-200 text-xl" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">{projects.length} {t('projects.projectsCount')}</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">{t('projects.completed')}</p>
+              <h3 className="text-base font-semibold text-white">{projects.length} {t('projects.projectsCount')}</h3>
+              <p className="text-sm text-gray-400">{t('projects.completed')}</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm">
-            <div className="p-2 sm:p-3 bg-gray-700 rounded-lg">
-              <FaStar className="text-gray-200 text-sm sm:text-base" />
+          <div className="flex items-center space-x-4 p-5 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:shadow-xl transition-all duration-300">
+            <div className="p-3 bg-gray-700 rounded-lg">
+              <FaStar className="text-gray-200 text-xl" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">{t('projects.quality')}</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">{t('projects.qualitySub')}</p>
+              <h3 className="text-base font-semibold text-white">{t('projects.quality')}</h3>
+              <p className="text-sm text-gray-400">{t('projects.qualitySub')}</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-800 rounded-xl shadow-sm">
-            <div className="p-2 sm:p-3 bg-gray-700 rounded-lg">
-              <FaRegClock className="text-gray-200 text-sm sm:text-base" />
+          <div className="flex items-center space-x-4 p-5 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:shadow-xl transition-all duration-300">
+            <div className="p-3 bg-gray-700 rounded-lg">
+              <FaRegClock className="text-gray-200 text-xl" />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-medium text-white">{t('projects.latest')}</h3>
-              <p className="text-[10px] sm:text-xs text-gray-400">{t('projects.latestSub')}</p>
+              <h3 className="text-base font-semibold text-white">{t('projects.latest')}</h3>
+              <p className="text-sm text-gray-400">{t('projects.latestSub')}</p>
             </div>
           </div>
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-12 sm:mb-16">
           {categories.map((category) => (
             <button
               key={category}
@@ -247,10 +247,10 @@ const Project = () => {
                 setSelectedCategory(category);
                 setShowAll(false);
               }}
-              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
+              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-white text-black shadow-lg'
-                  : 'bg-gray-800 text-gray-200 hover:bg-gray-700 shadow-sm'
+                  : 'bg-gray-800 text-gray-200 hover:bg-gray-750 shadow-md border border-gray-700'
               }`}
             >
               {getCategoryTranslation(category)}
@@ -259,31 +259,31 @@ const Project = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="flex flex-wrap -m-2 sm:-m-4">
+        <div className="flex flex-wrap -m-4">
           {displayedProjects.map((project, index) => (
             <div
               key={index}
-              className="p-2 sm:p-4 lg:w-1/4 md:w-1/2 w-full"
+              className="p-4 lg:w-1/4 md:w-1/2 w-full"
               data-aos="fade-up"
               data-aos-duration={400 + (index % 4) * 50}
             >
-              <div className="flex flex-col h-full bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-gray-700">
+              <div className="flex flex-col h-full bg-gray-800 rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl border border-gray-700 hover:border-gray-600">
                 <div
-                  className="relative h-[180px] sm:h-[200px] w-full overflow-hidden cursor-pointer group"
+                  className="relative h-[220px] sm:h-[240px] w-full overflow-hidden cursor-pointer group"
                   onClick={() => openLightbox(index)}
                 >
                   <Image
                     src={project.src}
                     alt={project.alt}
-                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     placeholder="blur"
                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-lg">
+                      <span className="text-white text-sm font-semibold bg-black/60 px-5 py-2.5 rounded-lg backdrop-blur-sm">
                         {t('projects.clickToView')}
                       </span>
                     </div>
