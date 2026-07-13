@@ -90,6 +90,47 @@
 
   [dir="rtl"] body {
     font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', 'Arial', sans-serif;
+    line-height: 1.8; /* Better line height for Urdu/Arabic */
+  }
+
+  /* Text alignment for RTL - only for left-aligned text, preserve center alignment */
+  [dir="rtl"] .text-left {
+    text-align: right;
+  }
+
+  [dir="rtl"] .md\:text-left {
+    text-align: right;
+  }
+
+  /* Keep all centered content centered in RTL */
+  [dir="rtl"] .text-center {
+    text-align: center !important;
+  }
+
+  /* Better text containment and wrapping for all languages */
+  p, h1, h2, h3, h4, h5, h6, span, div, li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+  }
+
+  /* Ensure proper text rendering for RTL languages */
+  [dir="rtl"] * {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Fix flex containers in RTL to not reverse layout */
+  [dir="rtl"] .flex,
+  [dir="rtl"] .inline-flex {
+    direction: rtl;
+  }
+
+  /* Keep grid layouts intact */
+  [dir="rtl"] .grid {
+    direction: rtl;
   }
 }
 
