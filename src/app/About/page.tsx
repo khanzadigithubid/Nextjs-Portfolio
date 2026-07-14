@@ -88,8 +88,8 @@ const About = () => {
                 {/* Download Resume Button */}
                 <div className="flex justify-center md:justify-start mt-8">
                   <a
-                    href="/Khanzadi_Wazir_Ali_Resume.pdf"
-                    download="Khanzadi_Wazir_Ali_Resume.pdf"
+                    href="/Khanzadi_Resume_MASTER (3).pdf"
+                    download="Khanzadi_Resume_MASTER.pdf"
                     className="inline-flex items-center space-x-2 px-8 py-3.5 bg-white text-black rounded-lg text-base font-semibold shadow-lg hover:shadow-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
                   >
                     <FaDownload className="text-lg" />
